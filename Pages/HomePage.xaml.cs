@@ -1,10 +1,10 @@
 ﻿namespace WeatherFlex;
 
-public partial class MainPage : ContentPage
+public partial class HomePage : ContentPage
 {
 	int count = 0;
 
-	public MainPage()
+	public HomePage()
 	{
 		InitializeComponent();
 	}
@@ -21,4 +21,3 @@ public partial class MainPage : ContentPage
 		SemanticScreenReader.Announce(CounterBtn.Text);
 	}
 }
-
