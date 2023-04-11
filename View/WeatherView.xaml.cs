@@ -8,6 +8,6 @@ public partial class WeatherView : ContentView
 	{
 		InitializeComponent();
 
-		BindingContext = viewModel.Weather;
+		BindingContext = viewModel.WeatherAPI;
 	}
 }
