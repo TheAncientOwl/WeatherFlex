@@ -1,4 +1,4 @@
-namespace WeatherFlex.ContentViews;
+namespace WeatherFlex.View.Feedback;
 
 public partial class InfoView : ContentView
 {
