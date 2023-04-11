@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:WeatherFlex.Model"
+             x:Class="WeatherFlex.View.WeatherView"
+             x:DataType="model:Weather"
+             >
+    <VerticalStackLayout>
+        <Label Text="{Binding Latitude}"/>
+        <Label Text="{Binding Longitude}"/>
+        <Label Text="{Binding Timezone}"/>
+        <Label Text="{Binding HourlyUnits.Units}"/>
+        <Label Text="{Binding HourlyTemperature.Time[0]}"/>
+        <Label Text="{Binding HourlyTemperature.Temperature[0]}"/>
+    </VerticalStackLayout>
+</ContentView>

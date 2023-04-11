@@ -54,19 +54,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="ContentPages\HomePage.xaml.cs">
+	  <Compile Update="View\HomePage.xaml.cs">
 	    <DependentUpon>HomePage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="ContentViews\ErrorView.xaml">
+	  <MauiXaml Update="View\Feedback\ErrorView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ContentViews\InfoView.xaml">
+	  <MauiXaml Update="View\Feedback\InfoView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ContentViews\WeatherLocationView.xaml">
+	  <MauiXaml Update="View\WeatherView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
