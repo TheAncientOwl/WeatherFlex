@@ -42,6 +42,15 @@ namespace WeatherFlex.Model
 
         [JsonPropertyName("temperature_2m")]
         public List<double> Temperature { get; set; }
+
+        [JsonPropertyName("is_day")]
+        public List<int> IsDay { get; set; }
+
+        [JsonPropertyName("precipitation_probability")]
+        public List<int> PrecipitationProbability { get; set; }
+
+        [JsonPropertyName("weathercode")]
+        public List<int> Weathercode { get; set; }
     }
 
     public class Weather
@@ -57,5 +66,8 @@ namespace WeatherFlex.Model
 
         [JsonPropertyName("time")]
         public string Time { get; set; }
+
+        [JsonPropertyName("weathercode")]
+        public int Weathercode { get; set; }
     }
 }

@@ -5,11 +5,10 @@ namespace WeatherFlex.ViewModels
 {
     public class WeatherViewModel
     {
-        WeatherAPI weather;
         readonly WeatherService weatherService;
         readonly GeolocationService geolocationService;
 
-        public WeatherAPI Weather { get => weather; }
+        public WeatherAPI Weather { get; private set; }
 
         public WeatherViewModel(WeatherService weatherService, GeolocationService geolocationService)
         {
@@ -26,9 +25,9 @@ namespace WeatherFlex.ViewModels
 
         public async Task GetWeatherAsync(double latitude, double longitude)
         {
-            weather = await weatherService.FetchWeather(latitude, longitude);
+            Weather = await weatherService.FetchWeather(latitude, longitude);
 
-            weather.LocationProperties = await geolocationService.GetLocationPropertiesAsync(latitude, longitude);
+            Weather.LocationProperties = await geolocationService.GetLocationPropertiesAsync(latitude, longitude);
         }
     }
 }
