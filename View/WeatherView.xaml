@@ -8,7 +8,6 @@
     <VerticalStackLayout Padding="10,10,10,10" HorizontalOptions="CenterAndExpand">
         <Label Text="{Binding LocationProperties.City}"/>
         <Label Text="{Binding LocationProperties.Country}"/>
-        <Label Text="{Binding LocationProperties.CountryCode}"/>
         <Label Text="{Binding Latitude}"/>
         <Label Text="{Binding Longitude}"/>
         <Label Text="{Binding Timezone}"/>
