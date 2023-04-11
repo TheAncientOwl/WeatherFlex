@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using WeatherFlex.ContentViews;
+﻿using WeatherFlex.ContentViews;
 using WeatherFlex.ViewModels;
 
 namespace WeatherFlex;
