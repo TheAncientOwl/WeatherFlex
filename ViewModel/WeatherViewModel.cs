@@ -27,6 +27,8 @@ namespace WeatherFlex.ViewModels
         public async Task GetWeatherAsync(double latitude, double longitude)
         {
             weather = await weatherService.FetchWeather(latitude, longitude);
+
+            weather.LocationProperties = await geolocationService.GetLocationPropertiesAsync(latitude, longitude);
         }
     }
 }

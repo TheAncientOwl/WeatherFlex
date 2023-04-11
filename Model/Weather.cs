@@ -4,6 +4,9 @@ namespace WeatherFlex.Model
 {
     public class Weather
     {
+        [JsonIgnore]
+        public LocationProperties LocationProperties { get; set; }
+
         [JsonPropertyName("latitude")]
         public double Latitude { get; set; }
 
