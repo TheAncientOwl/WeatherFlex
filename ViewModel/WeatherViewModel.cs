@@ -5,11 +5,11 @@ namespace WeatherFlex.ViewModels
 {
     public class WeatherViewModel
     {
-        Weather weather;
+        WeatherAPI weather;
         readonly WeatherService weatherService;
         readonly GeolocationService geolocationService;
 
-        public Weather Weather { get => weather; }
+        public WeatherAPI Weather { get => weather; }
 
         public WeatherViewModel(WeatherService weatherService, GeolocationService geolocationService)
         {

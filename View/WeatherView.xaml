@@ -3,14 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:WeatherFlex.Model"
              x:Class="WeatherFlex.View.WeatherView"
-             x:DataType="model:Weather"
+             x:DataType="model:WeatherAPI"
              >
     <VerticalStackLayout Padding="10,10,10,10" HorizontalOptions="CenterAndExpand">
         <Label Text="{Binding LocationProperties.City}"/>
         <Label Text="{Binding LocationProperties.Country}"/>
+
+        <Label Text="{Binding CurrentWeather.IsDay}"/>
+        <Label Text="{Binding CurrentWeather.Temperature}"/>
+        <Label Text="{Binding CurrentWeather.Time}"/>
+        <Label Text="{Binding CurrentWeather.WindSpeed}"/>
+        
         <Label Text="{Binding Latitude}"/>
         <Label Text="{Binding Longitude}"/>
         <Label Text="{Binding Timezone}"/>
+
         <Label Text="{Binding HourlyUnits.Units}"/>
         <Label Text="{Binding HourlyTemperature.Time[0]}"/>
         <Label Text="{Binding HourlyTemperature.Temperature[0]}"/>

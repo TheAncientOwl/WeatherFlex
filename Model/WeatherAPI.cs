@@ -2,7 +2,7 @@
 
 namespace WeatherFlex.Model
 {
-    public class Weather
+    public class WeatherAPI
     {
         [JsonIgnore]
         public LocationProperties LocationProperties { get; set; }
@@ -15,6 +15,9 @@ namespace WeatherFlex.Model
 
         [JsonPropertyName("timezone")]
         public string Timezone { get; set; }
+
+        [JsonPropertyName("current_weather")]
+        public Weather CurrentWeather { get; set; }
 
         [JsonPropertyName("hourly_units")]
         public HourlyUnits HourlyUnits { get; set; }
@@ -39,5 +42,20 @@ namespace WeatherFlex.Model
 
         [JsonPropertyName("temperature_2m")]
         public List<double> Temperature { get; set; }
+    }
+
+    public class Weather
+    {
+        [JsonPropertyName("temperature")]
+        public double Temperature { get; set; }
+
+        [JsonPropertyName("windspeed")]
+        public double WindSpeed { get; set; }
+
+        [JsonPropertyName("is_day")]
+        public int IsDay { get; set; }
+
+        [JsonPropertyName("time")]
+        public string Time { get; set; }
     }
 }
