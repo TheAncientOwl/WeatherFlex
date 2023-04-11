@@ -16,11 +16,17 @@ public partial class HomePage : ContentPage
 
         try
         {
-            Location location = await Geolocation.Default.GetLastKnownLocationAsync();
+            Location location = await Geolocation.Default.GetLastKnownLocationAsync() ??
+                                await Geolocation.Default.GetLocationAsync(new GeolocationRequest()
+                                {
+                                    DesiredAccuracy = GeolocationAccuracy.Medium,
+                                    Timeout = TimeSpan.FromSeconds(30)
+                                });
 
             if (location != null)
             {
                 var userLocationWeatherViewModel = new WeatherLocationViewModel() { Latitude = location.Latitude, Longitude = location.Longitude };
+
                 Content = new WeatherLocationView(userLocationWeatherViewModel);
             }
             else
