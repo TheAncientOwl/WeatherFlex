@@ -5,6 +5,8 @@ namespace WeatherFlex.ViewModels
 {
     public class WeatherViewModel
     {
+        static readonly int TEMPERATURES_COUNT_LIMIT = 25;
+
         readonly WeatherService weatherService;
         readonly GeolocationService geolocationService;
 
@@ -37,13 +39,15 @@ namespace WeatherFlex.ViewModels
             List<Temperature> temperatures = new();
             HourlyTemperature hourlyTemperature = WeatherAPI.HourlyTemperature;
 
-            for (int i = 0; i < hourlyTemperature.Temperature.Count; i++)
+            for (int i = 0, temperaturesCountLimit = TEMPERATURES_COUNT_LIMIT; 
+                i < hourlyTemperature.Temperature.Count && temperaturesCountLimit > 0; 
+                i++)
             {
                 DateTime time = hourlyTemperature.GetDateTimeAt(i);
 
                 if (time.Day > now.Day || (time.Day == now.Day && time.Hour >= now.Hour))
                 {
-
+                    temperaturesCountLimit--;
                     temperatures.Add(new Temperature()
                     {
                         Time = hourlyTemperature.Time[i],
