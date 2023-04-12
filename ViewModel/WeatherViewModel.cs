@@ -32,20 +32,29 @@ namespace WeatherFlex.ViewModels
 
         public List<Temperature> GetHourlyTemperature()
         {
+            DateTime now = DateTime.Now;
+
             List<Temperature> temperatures = new();
             HourlyTemperature hourlyTemperature = WeatherAPI.HourlyTemperature;
 
             for (int i = 0; i < hourlyTemperature.Temperature.Count; i++)
             {
-                temperatures.Add(new Temperature()
+                DateTime time = hourlyTemperature.GetDateTimeAt(i);
+
+                if (time.Day >= now.Day || time.Hour >= now.Hour)
                 {
-                    Time = hourlyTemperature.Time[i],
-                    Value = hourlyTemperature.Temperature[i],
-                    Units = WeatherAPI.HourlyUnits.Units,
-                    PrecipitationProbability = hourlyTemperature.PrecipitationProbability[i],
-                    Weathercode = Weathercode.FromCode(hourlyTemperature.Weathercode[i])
-                });
+                    temperatures.Add(new Temperature()
+                    {
+                        Time = hourlyTemperature.Time[i],
+                        Value = hourlyTemperature.Temperature[i],
+                        Units = WeatherAPI.HourlyUnits.Units,
+                        PrecipitationProbability = hourlyTemperature.PrecipitationProbability[i],
+                        Weathercode = Weathercode.FromCode(hourlyTemperature.Weathercode[i])
+                    });
+                }
             }
+
+            temperatures[0].IsNow = true;
 
             return temperatures;
         }
