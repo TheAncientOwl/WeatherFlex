@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace WeatherFlex.Model.Weather
 {
@@ -20,11 +19,9 @@ namespace WeatherFlex.Model.Weather
         [JsonPropertyName("weathercode")]
         public List<int> Weathercode { get; set; }
 
-        public DateTime GetDateTimeAt(int index) =>
-             DateTime.TryParseExact(Time[index], "yyyy-MM-ddThh:mm",
-                                          CultureInfo.InvariantCulture, DateTimeStyles.None,
-                                          out DateTime dateTime)
-                ? dateTime
-                : DateTime.Now;
+        public DateTime GetDateTimeAt(int index)
+        {
+            return DateTime.Parse(Time[index]);
+        }
     }
 }

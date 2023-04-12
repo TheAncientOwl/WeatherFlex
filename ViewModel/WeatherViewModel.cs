@@ -41,8 +41,9 @@ namespace WeatherFlex.ViewModels
             {
                 DateTime time = hourlyTemperature.GetDateTimeAt(i);
 
-                if (time.Day >= now.Day || time.Hour >= now.Hour)
+                if (time.Day > now.Day || (time.Day == now.Day && time.Hour >= now.Hour))
                 {
+
                     temperatures.Add(new Temperature()
                     {
                         Time = hourlyTemperature.Time[i],
