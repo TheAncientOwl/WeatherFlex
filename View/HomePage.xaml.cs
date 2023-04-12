@@ -19,6 +19,6 @@ public partial class HomePage : ContentPage
         WeatherViewModel weatherViewModel = new(new WeatherService(), new GeolocationService());
         await weatherViewModel.GetUserWeatherAsync();
 
-        Content = new WeatherView(weatherViewModel);
+        Content = new WeatherView(weatherViewModel, Window);
     }
 }

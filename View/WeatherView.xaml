@@ -5,23 +5,44 @@
              x:Class="WeatherFlex.View.WeatherView"
              x:DataType="model:WeatherAPI"
              >
-    <VerticalStackLayout Padding="10,15,10,10" HorizontalOptions="CenterAndExpand">
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Margin="0,0,0,5">
+    <VerticalStackLayout HorizontalOptions="CenterAndExpand">
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" 
+                               Margin="0,20,0,0" 
+                               Padding="10,0,10,0">
             <Label FontSize="18" Text="{Binding LocationProperties.City}"/>
-            <Label FontSize="18" Text="," Margin="0,0,4,0"/>
+            <Label FontSize="18" Text="," Margin="0,0,5,0"/>
             <Label FontSize="18" Text="{Binding LocationProperties.Country}"/>
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="5" Margin="0,0,0,5">
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
+                               Margin="0,5,0,0"
+                               Padding="10,0,10,0">
             <Label FontSize="65" FontAttributes="Bold" Text="{Binding CurrentWeather.Temperature}"/>
-            <Label FontSize="30" FontAttributes="Bold" Text="{Binding HourlyUnits.Units}"/>
+            <Label FontSize="35" FontAttributes="Bold" Padding="0,5,0,0" Text="{Binding HourlyUnits.Units}"/>
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Margin="0,0,0,15">
-            <Label Text="{Binding CurrentWeather.WeatherInterpretation}"/>
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
+                               Margin="0,6,0,0"
+                               Padding="10,0,10,0">
+            <Label FontSize="Body" Text="{Binding CurrentWeather.WeatherInterpretation}"/>
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="7" Margin="0,0,0,5">
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               Spacing="5"
+                               Margin="0,6,0,0" 
+                               Padding="10,0,10,0">
+            <Label FontSize="Caption" Text="Wind speed: " VerticalOptions="CenterAndExpand"/>
+            <HorizontalStackLayout Spacing="2" VerticalOptions="CenterAndExpand">
+                <Label FontSize="Body" Text="{Binding CurrentWeather.WindSpeed}"/>
+                <Label FontSize="Body" Text="Km/h"/>
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
+                               Spacing="10"
+                               Margin="0,6,0,0" 
+                               Padding="10,0,10,0">
             <HorizontalStackLayout>
                 <Label FontSize="Body" Text="{Binding Latitude}"/>
                 <Label FontSize="Body" Text="°,"/>
@@ -35,12 +56,69 @@
             <Label FontSize="14" Text="{Binding Timezone}"/>
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="5">
-            <Label FontSize="Caption" Text="Wind speed: "/>
-            <HorizontalStackLayout Spacing="2">
-                <Label FontSize="Caption" FontAttributes="Bold" Text="{Binding CurrentWeather.WindSpeed}"/>
-                <Label FontSize="Caption" FontAttributes="Bold" Text="Km/h"/>
-            </HorizontalStackLayout>
+        <HorizontalStackLayout Margin="0,30,0,0">
+            <ScrollView x:Name="hourlyWeatherScrollView" 
+                        Orientation="Horizontal" 
+                        HorizontalOptions="FillAndExpand">
+                <CollectionView x:Name="hourlyWeather" 
+                                x:DataType="model:Temperature" 
+                                ItemsLayout="HorizontalList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Stroke="LightSkyBlue" 
+                                    StrokeThickness="3" 
+                                    StrokeShape="RoundRectangle 4,4,4,4"
+                                    Margin="0,0,0,20">
+                                <Grid BackgroundColor="LightSkyBlue">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="85"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label TextColor="DimGray" 
+                                           VerticalOptions="CenterAndExpand" 
+                                           HorizontalOptions="CenterAndExpand" 
+                                           Grid.Row="0" 
+                                           Text="{Binding Hour}"/>
+
+                                    <Label TextColor="DimGray" 
+                                           VerticalOptions="CenterAndExpand" 
+                                           HorizontalOptions="CenterAndExpand"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           Grid.Row="1" 
+                                           Text="{Binding WeatherInterpretation}"/>
+
+                                    <HorizontalStackLayout VerticalOptions="CenterAndExpand" 
+                                                           HorizontalOptions="CenterAndExpand" 
+                                                           Spacing="2"
+                                                           Grid.Row="2">
+                                        <Label TextColor="DimGray" 
+                                               Text="{Binding Value}"/>
+                                        <Label TextColor="DimGray"
+                                               Text="{Binding Units}"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout VerticalOptions="CenterAndExpand" 
+                                                           HorizontalOptions="CenterAndExpand" 
+                                                           Grid.Row="3">
+                                        <Label TextColor="DimGray" 
+                                           Text="{Binding PrecipitationProbability}"/>
+                                        <Label TextColor="DimGray" 
+                                               Text="% Rain"/>
+                                    </HorizontalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentView>
