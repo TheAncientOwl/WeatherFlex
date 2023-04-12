@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:WeatherFlex.Model"
              x:Class="WeatherFlex.View.WeatherView"
-             x:DataType="model:WeatherAPI"
+             x:DataType="model:Weather.WeatherAPI"
              >
     <VerticalStackLayout HorizontalOptions="CenterAndExpand">
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" 
@@ -61,7 +61,7 @@
                         Orientation="Horizontal" 
                         HorizontalOptions="FillAndExpand">
                 <CollectionView x:Name="hourlyWeather" 
-                                x:DataType="model:Temperature" 
+                                x:DataType="model:Weather.Temperature" 
                                 ItemsLayout="HorizontalList">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>

@@ -1,5 +1,5 @@
 ﻿using System.Net.Http.Json;
-using WeatherFlex.Model;
+using WeatherFlex.Model.Weather;
 
 namespace WeatherFlex.Services
 {

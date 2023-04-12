@@ -1,4 +1,4 @@
-﻿using WeatherFlex.Model;
+﻿using WeatherFlex.Model.Weather;
 using WeatherFlex.Services;
 
 namespace WeatherFlex.ViewModels
