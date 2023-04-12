@@ -29,5 +29,25 @@ namespace WeatherFlex.ViewModels
 
             WeatherAPI.LocationProperties = await geolocationService.GetLocationPropertiesAsync(latitude, longitude);
         }
+
+        public List<Temperature> GetHourlyTemperature()
+        {
+            List<Temperature> temperatures = new();
+            HourlyTemperature hourlyTemperature = WeatherAPI.HourlyTemperature;
+
+            for (int i = 0; i < hourlyTemperature.Temperature.Count; i++)
+            {
+                temperatures.Add(new Temperature()
+                {
+                    Time = hourlyTemperature.Time[i],
+                    Value = hourlyTemperature.Temperature[i],
+                    Units = WeatherAPI.HourlyUnits.Units,
+                    PrecipitationProbability = hourlyTemperature.PrecipitationProbability[i],
+                    WeatherInterpretation = Weathercodes.Interpretation[hourlyTemperature.Weathercode[i]]
+                }); ;
+            }
+
+            return temperatures;
+        }
     }
 }
