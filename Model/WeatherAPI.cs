@@ -53,6 +53,18 @@ namespace WeatherFlex.Model
         public List<int> Weathercode { get; set; }
     }
 
+    public class Temperature
+    {
+        public string Time { get; set; }
+        public double Value { get; set; }
+        public string Units { get; set; }
+        public int PrecipitationProbability { get; set; }
+        public string WeatherInterpretation { get; set; }
+        public string BackgroundColor { get; set; }
+        public string TextColor { get; set; }
+        public string Hour { get => Time.Split('T')[1]; }
+    }
+
     public class Weather
     {
         [JsonPropertyName("temperature")]
@@ -71,12 +83,12 @@ namespace WeatherFlex.Model
         public int Weathercode { get; set; }
 
         [JsonIgnore]
-        public string WeatherInterpretation { get => Weathercodes.Dictionary[Weathercode]; }
+        public string WeatherInterpretation { get; set; }
     }
 
     public class Weathercodes
     {
-        public static Dictionary<int, string> Dictionary { get; } = new Dictionary<int, string>()
+        public static Dictionary<int, string> Interpretation { get; } = new Dictionary<int, string>()
         {
             { 0, "Clear sky" },
             { 1, "Mainly clear" },
