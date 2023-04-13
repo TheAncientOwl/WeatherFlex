@@ -52,7 +52,7 @@ namespace WeatherFlex.ViewModels
                     {
                         Time = temperatureForecast.Time[i],
                         Value = temperatureForecast.Temperature[i],
-                        Units = WeatherAPI.HourlyUnits.Units,
+                        Units = WeatherAPI.WeatherUnits.Units,
                         PrecipitationProbability = temperatureForecast.PrecipitationProbability[i],
                         WeatherCode = WeatherCode.FromCode(temperatureForecast.Weathercode[i])
                     });

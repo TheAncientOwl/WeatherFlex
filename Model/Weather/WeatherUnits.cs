@@ -2,7 +2,7 @@
 
 namespace WeatherFlex.Model.Weather
 {
-    public class HourlyUnits
+    public class WeatherUnits
     {
         [JsonPropertyName("time")]
         public string Time { get; set; }

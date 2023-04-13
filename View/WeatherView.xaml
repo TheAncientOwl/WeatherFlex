@@ -18,7 +18,7 @@
                                Margin="0,5,0,0"
                                Padding="10,0,10,0">
             <Label FontSize="65" FontAttributes="Bold" Text="{Binding CurrentWeather.Temperature}"/>
-            <Label FontSize="35" FontAttributes="Bold" Padding="0,5,0,0" Text="{Binding HourlyUnits.Units}"/>
+            <Label FontSize="35" FontAttributes="Bold" Padding="0,5,0,0" Text="{Binding WeatherUnits.Units}"/>
         </HorizontalStackLayout>
 
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
