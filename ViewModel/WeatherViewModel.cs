@@ -54,7 +54,7 @@ namespace WeatherFlex.ViewModels
                         Value = hourlyTemperature.Temperature[i],
                         Units = WeatherAPI.HourlyUnits.Units,
                         PrecipitationProbability = hourlyTemperature.PrecipitationProbability[i],
-                        Weathercode = Weathercode.FromCode(hourlyTemperature.Weathercode[i])
+                        WeatherCode = WeatherCode.FromCode(hourlyTemperature.Weathercode[i])
                     });
                 }
             }
