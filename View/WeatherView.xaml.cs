@@ -4,7 +4,6 @@ namespace WeatherFlex.View;
 
 public partial class WeatherView : ContentView
 {
-	private static readonly int HOURLY_WEATHER_WIDTH_DECREASE = 55;
 	readonly Window window;
 
 	public WeatherView(WeatherViewModel viewModel, Window window)
@@ -17,13 +16,15 @@ public partial class WeatherView : ContentView
 
 		hourlyWeather.ItemsSource = viewModel.GetHourlyTemperature();
 
-		hourlyWeatherScrollView.MaximumWidthRequest = window.Width - HOURLY_WEATHER_WIDTH_DECREASE;
+		hourlyWeatherScrollView.MaximumWidthRequest = ForecastViewWidth;
 		
 		window.SizeChanged += WindowSizeChanged;
 	}
 
-    private void WindowSizeChanged(object sender, EventArgs e)
+    void WindowSizeChanged(object sender, EventArgs e)
 	{
-		hourlyWeatherScrollView.MaximumWidthRequest = window.Width - HOURLY_WEATHER_WIDTH_DECREASE;
+		hourlyWeatherScrollView.MaximumWidthRequest = ForecastViewWidth;
 	}
+
+	double ForecastViewWidth { get => window.Width - window.Width * 0.04; }
 }
