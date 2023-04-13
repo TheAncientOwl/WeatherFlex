@@ -1,7 +1,7 @@
-﻿using WeatherFlex.View.Feedback;
-using WeatherFlex.View;
+﻿using WeatherFlex.View;
 using WeatherFlex.ViewModels;
 using WeatherFlex.Services;
+using WeatherFlex.View.Feedback;
 
 namespace WeatherFlex;
 
@@ -14,7 +14,7 @@ public partial class HomePage : ContentPage
 
     protected override async void OnAppearing()
     {
-        Content = new InfoView("Loading location...");
+        Content = new InfoView("Loading data...");
 
         WeatherViewModel weatherViewModel = new(new WeatherService(), new GeolocationService());
         await weatherViewModel.GetUserWeatherAsync();
