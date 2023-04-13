@@ -10,9 +10,6 @@ namespace WeatherFlex.Model.Weather
         [JsonPropertyName("windspeed")]
         public double WindSpeed { get; set; }
 
-        [JsonPropertyName("is_day")]
-        public int IsDay { get; set; }
-
         [JsonPropertyName("time")]
         public string Time { get; set; }
 
