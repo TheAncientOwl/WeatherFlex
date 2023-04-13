@@ -29,36 +29,35 @@
 
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
                                VerticalOptions="CenterAndExpand"
-                               Spacing="5"
                                Margin="0,6,0,0" 
                                Padding="10,0,10,0">
-            <Label FontSize="Caption" Text="Wind speed: " VerticalOptions="CenterAndExpand"/>
-            <HorizontalStackLayout Spacing="2" VerticalOptions="CenterAndExpand">
-                <Label FontSize="Body" Text="{Binding CurrentWeather.WindSpeed}"/>
-                <Label FontSize="Body" Text="Km/h"/>
-            </HorizontalStackLayout>
+            <Label FontSize="Caption" Text="Wind speed:" Margin="0,0,5,0"/>
+            <Label FontSize="Body" Text="{Binding CurrentWeather.WindSpeed}" Margin="0,0,2,0"/>
+            <Label FontSize="Body" Text="Km/h"/>
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
+        <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
                                Spacing="10"
                                Margin="0,6,0,0" 
-                               Padding="10,0,10,0">
-            <HorizontalStackLayout>
-                <Label FontSize="Body" Text="lat:" Margin="0,0,3,0"/>
-                <Label FontSize="Body" Text="{Binding LocationProperties.Latitude}"/>
-                <Label FontSize="Body" Text="°,"/>
+                               Padding="10,0,10,20">
+                <HorizontalStackLayout>
+                    <Label FontSize="Body" Text="lat:" Margin="0,0,3,0"/>
+                    <Label FontSize="Body" Text="{Binding LocationProperties.Latitude}"/>
+                    <Label FontSize="Body" Text="°,"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label FontSize="Body" Text="long: " Margin="0,0,3,0"/>
+                    <Label FontSize="Body" Text="{Binding LocationProperties.Longitude}"/>
+                    <Label FontSize="Body" Text="°,"/>
+                </HorizontalStackLayout>
+
+                <Label FontSize="14" Text="{Binding Timezone}"/>
             </HorizontalStackLayout>
+        </ScrollView>
 
-            <HorizontalStackLayout>
-                <Label FontSize="Body" Text="long: " Margin="0,0,3,0"/>
-                <Label FontSize="Body" Text="{Binding LocationProperties.Longitude}"/>
-                <Label FontSize="Body" Text="°,"/>
-            </HorizontalStackLayout>
-
-            <Label FontSize="14" Text="{Binding Timezone}"/>
-        </HorizontalStackLayout>
-
-        <HorizontalStackLayout Margin="0,30,0,0">
+        <HorizontalStackLayout Margin="0,25,0,0">
             <ScrollView x:Name="hourlyWeatherScrollView" 
                         Orientation="Horizontal" 
                         HorizontalOptions="FillAndExpand">
