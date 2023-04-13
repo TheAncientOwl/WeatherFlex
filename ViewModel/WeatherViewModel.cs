@@ -37,24 +37,24 @@ namespace WeatherFlex.ViewModels
             DateTime now = DateTime.Now;
 
             List<Temperature> temperatures = new();
-            HourlyTemperature hourlyTemperature = WeatherAPI.HourlyTemperature;
+            TemperatureForecast temperatureForecast = WeatherAPI.TemperatureForecast;
 
             for (int i = 0, temperaturesCountLimit = TEMPERATURES_COUNT_LIMIT; 
-                i < hourlyTemperature.Temperature.Count && temperaturesCountLimit > 0; 
+                i < temperatureForecast.Temperature.Count && temperaturesCountLimit > 0; 
                 i++)
             {
-                DateTime time = hourlyTemperature.GetDateTimeAt(i);
+                DateTime time = temperatureForecast.GetDateTimeAt(i);
 
                 if (time.Day > now.Day || (time.Day == now.Day && time.Hour >= now.Hour))
                 {
                     temperaturesCountLimit--;
                     temperatures.Add(new Temperature()
                     {
-                        Time = hourlyTemperature.Time[i],
-                        Value = hourlyTemperature.Temperature[i],
+                        Time = temperatureForecast.Time[i],
+                        Value = temperatureForecast.Temperature[i],
                         Units = WeatherAPI.HourlyUnits.Units,
-                        PrecipitationProbability = hourlyTemperature.PrecipitationProbability[i],
-                        WeatherCode = WeatherCode.FromCode(hourlyTemperature.Weathercode[i])
+                        PrecipitationProbability = temperatureForecast.PrecipitationProbability[i],
+                        WeatherCode = WeatherCode.FromCode(temperatureForecast.Weathercode[i])
                     });
                 }
             }

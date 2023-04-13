@@ -2,7 +2,7 @@
 
 namespace WeatherFlex.Model.Weather
 {
-    public class HourlyTemperature
+    public class TemperatureForecast
     {
         [JsonPropertyName("time")]
         public List<string> Time { get; set; }
@@ -22,3 +22,4 @@ namespace WeatherFlex.Model.Weather
         }
     }
 }
+

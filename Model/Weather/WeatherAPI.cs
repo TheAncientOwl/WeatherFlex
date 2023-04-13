@@ -17,6 +17,6 @@ namespace WeatherFlex.Model.Weather
         public HourlyUnits HourlyUnits { get; set; }
 
         [JsonPropertyName("hourly")]
-        public HourlyTemperature HourlyTemperature { get; set; }
+        public TemperatureForecast TemperatureForecast { get; set; }
     }
 }
