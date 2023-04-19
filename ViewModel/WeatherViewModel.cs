@@ -1,4 +1,5 @@
-﻿using WeatherFlex.Model.Weather;
+﻿using System.Windows.Input;
+using WeatherFlex.Model.Weather;
 using WeatherFlex.Services;
 
 namespace WeatherFlex.ViewModels
@@ -17,6 +18,8 @@ namespace WeatherFlex.ViewModels
             this.weatherService = weatherService;
             this.geolocationService = geolocationService;
         }
+
+        
 
         public async Task GetUserWeatherAsync()
         {
