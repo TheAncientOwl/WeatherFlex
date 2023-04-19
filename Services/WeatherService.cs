@@ -1,11 +1,19 @@
-﻿using System.Net.Http.Json;
-using WeatherFlex.Model;
+﻿using System.Globalization;
+using System.Net.Http.Json;
+using WeatherFlex.Model.Weather;
 
 namespace WeatherFlex.Services
 {
     public class WeatherService
     {
-        private static readonly string API_LINK = "https://api.open-meteo.com/v1/forecast?latitude={0}&longitude={1}&hourly=temperature_2m";
+        private class QueryParameters
+        {
+            public static readonly string Location = "&latitude={0}&longitude={1}";
+            public static readonly string CurrentWeather = "&current_weather=true";
+            public static readonly string Hourly = "&hourly=temperature_2m,precipitation_probability,weathercode";
+            public static readonly string ForecastDays = "&forecast_days=4";
+        }
+        private static readonly string API_LINK = "https://api.open-meteo.com/v1/forecast?" + QueryParameters.Location + QueryParameters.CurrentWeather + QueryParameters.Hourly + QueryParameters.ForecastDays;
 
         readonly HttpClient httpClient;
 
@@ -14,9 +22,10 @@ namespace WeatherFlex.Services
             httpClient = new HttpClient();
         }
 
-        public async Task<Weather> FetchWeather(double latitude, double longitude)
+        public async Task<WeatherAPI> FetchWeather(double latitude, double longitude)
         {
-            Weather weather = await httpClient.GetFromJsonAsync<Weather>(string.Format(API_LINK, latitude, longitude));
+            var link = string.Format(API_LINK, ((float)latitude).ToString(CultureInfo.GetCultureInfo("en-US")), ((float)longitude).ToString(CultureInfo.GetCultureInfo("en-US")));
+            WeatherAPI weather = await httpClient.GetFromJsonAsync<WeatherAPI>(link);
 
             return weather;
         }

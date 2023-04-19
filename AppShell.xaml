@@ -8,7 +8,7 @@
     Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
-        Title="Weather"
+        Title="Local weather"
         ContentTemplate="{DataTemplate local:HomePage}"
         Route="HomePage" />
     <ShellContent
