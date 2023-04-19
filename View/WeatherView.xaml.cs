@@ -26,5 +26,5 @@ public partial class WeatherView : ContentView
 		hourlyWeatherScrollView.MaximumWidthRequest = ForecastViewWidth;
 	}
 
-	double ForecastViewWidth { get => window.Width - window.Width * 0.04; }
+	double ForecastViewWidth { get => window.Width - window.Width * 0.05; }
 }
