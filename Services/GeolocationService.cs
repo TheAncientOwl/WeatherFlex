@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using System.Globalization;
+using System.Net.Http.Json;
 using WeatherFlex.Model;
 
 namespace WeatherFlex.Services
@@ -62,7 +63,10 @@ namespace WeatherFlex.Services
 
         public async Task<LocationProperties> GetLocationPropertiesAsync(double latitude, double longitude)
         {
-            LocationFeatures locationFeatures = await httpClient.GetFromJsonAsync<LocationFeatures>(string.Format(GEOLOCATION_API_LINK, latitude, longitude));
+            var link = string.Format(GEOLOCATION_API_LINK, ((float)latitude).ToString(CultureInfo.GetCultureInfo("en-US")), ((float)longitude).ToString(CultureInfo.GetCultureInfo("en-US")));
+
+            LocationFeatures locationFeatures = await httpClient.GetFromJsonAsync<LocationFeatures>(link);
+
 
             return locationFeatures.Features[0].LocationProperties;
         }

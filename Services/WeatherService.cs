@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using System.Globalization;
+using System.Net.Http.Json;
 using WeatherFlex.Model.Weather;
 
 namespace WeatherFlex.Services
@@ -23,7 +24,8 @@ namespace WeatherFlex.Services
 
         public async Task<WeatherAPI> FetchWeather(double latitude, double longitude)
         {
-            WeatherAPI weather = await httpClient.GetFromJsonAsync<WeatherAPI>(string.Format(API_LINK, (float)latitude, (float)longitude));
+            var link = string.Format(API_LINK, ((float)latitude).ToString(CultureInfo.GetCultureInfo("en-US")), ((float)longitude).ToString(CultureInfo.GetCultureInfo("en-US")));
+            WeatherAPI weather = await httpClient.GetFromJsonAsync<WeatherAPI>(link);
 
             return weather;
         }
