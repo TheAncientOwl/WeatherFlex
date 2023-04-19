@@ -23,7 +23,7 @@ namespace WeatherFlex.Services
 
         public async Task<WeatherAPI> FetchWeather(double latitude, double longitude)
         {
-            WeatherAPI weather = await httpClient.GetFromJsonAsync<WeatherAPI>(string.Format(API_LINK, latitude, longitude));
+            WeatherAPI weather = await httpClient.GetFromJsonAsync<WeatherAPI>(string.Format(API_LINK, (float)latitude, (float)longitude));
 
             return weather;
         }
