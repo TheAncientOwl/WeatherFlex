@@ -2,9 +2,8 @@ namespace WeatherFlex.View;
 
 public partial class AboutPage : ContentPage
 {
-	public AboutPage()
+    public AboutPage()
 	{
 		InitializeComponent();
-	}
-
+    }
 }

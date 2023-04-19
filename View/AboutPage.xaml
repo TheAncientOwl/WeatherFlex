@@ -7,26 +7,36 @@
     <ScrollView>
         <VerticalStackLayout
             Spacing="50"
-            Padding="50, 0"
-            VerticalOptions="Center">
+            Padding="50,50,50,50"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            >
 
             <Border WidthRequest="300"
                     HeightRequest="300"
                     Stroke="Orange"
-                    StrokeThickness="9"
+                    StrokeThickness="7"
                     BackgroundColor="Black"
                     StrokeShape="RoundRectangle 20">
-
                 <Image
                     Source="poza_weather_flex.png"
                     HeightRequest="300"
                     WidthRequest="300"/>
-
             </Border>
 
-            <StackLayout Orientation="Vertical" HorizontalOptions="Center">
-                <Frame HorizontalOptions="Center" BackgroundColor="Beige">
-                    <Label Text="Welcome to WeatherFlex, the premier weather app for all your daily forecasts. 
+            <Border
+                MaximumWidthRequest="1100"
+                Stroke="Orange"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 20"
+                Padding="25,25,25,25"
+                >
+                <Label 
+                    FontSize="15" 
+                    FontAttributes="Bold" 
+                    VerticalTextAlignment="Center" 
+                    HorizontalTextAlignment="Center"
+                    Text="Welcome to WeatherFlex, the premier weather app for all your daily forecasts. 
 Our mission is to provide accurate, up-to-date weather information to our users in an intuitive, easy-to-use interface.
 Our app was built with the latest MAUI technology, ensuring that it works smoothly on all platforms. 
 Our developers utilized best practices and a user-centered design approach to create an app that is simple and intuitive to use, while still offering a rich feature set.
@@ -34,29 +44,26 @@ In addition to providing basic weather information such as temperature, precipit
 But WeatherFlex is more than just a weather app. It's a community of weather enthusiasts, all dedicated to sharing and learning about the latest weather trends and phenomena. 
 Join our forums to discuss weather-related topics with like-minded individuals, or follow us on social media for the latest updates and news.
 Whether you're a casual weather watcher or a serious meteorology enthusiast, WeatherFlex has everything you need to stay informed and up-to-date on the latest weather conditions." 
-                           FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-                </Frame>
-            </StackLayout>
+                />
+            </Border>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Version:" FontSize="20" FontAttributes="Bold" TextDecorations="Underline" />
-                <Label Text=" 1.0.0" FontSize="20" />
-            </StackLayout>
-
-            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+            <VerticalStackLayout>
                 <Label Text="Authors:" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold" TextDecorations="Underline"/>
                 <Label Text="Delegeanu Alexandru-Gabriel" FontSize="20" HorizontalOptions="Center" />
                 <Label Text="Francu Catalin-Marian" FontSize="20" HorizontalOptions="Center" />
                 <Label Text="Goia Ciprian-Gabriel" FontSize="20" HorizontalOptions="Center" />
                 <Label Text="Linca Alin" FontSize="20" HorizontalOptions="Center" />
-            </StackLayout>
+            </VerticalStackLayout>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+            <VerticalStackLayout HorizontalOptions="Center" >
                 <Label Text="Weather API:" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold" TextDecorations="Underline" />
                 <Label Text=" https://api.open-meteo.com/" FontSize="20" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
 
-                
-            </StackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Version:" FontSize="20" FontAttributes="Bold" TextDecorations="Underline" />
+                <Label Text=" 1.0.0" FontSize="20" />
+            </HorizontalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>
