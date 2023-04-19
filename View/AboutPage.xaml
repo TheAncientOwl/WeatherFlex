@@ -57,7 +57,7 @@ Whether you're a casual weather watcher or a serious meteorology enthusiast, Wea
 
             <VerticalStackLayout HorizontalOptions="Center" >
                 <Label Text="Weather API:" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold" TextDecorations="Underline" />
-                <Label Text=" https://api.open-meteo.com/" FontSize="20" HorizontalOptions="Center"/>
+                <Label Text=" https://open-meteo.com/en/docs" FontSize="20" HorizontalOptions="Center"/>
             </VerticalStackLayout>
 
             <HorizontalStackLayout HorizontalOptions="Center">
