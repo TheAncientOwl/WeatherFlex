@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using WeatherFlex.Data;
 using WeatherFlex.Model.Weather;
 using WeatherFlex.Services;
 
@@ -19,8 +20,6 @@ namespace WeatherFlex.ViewModels
             this.geolocationService = geolocationService;
         }
 
-        
-
         public async Task GetUserWeatherAsync()
         {
             Location userLocation = await geolocationService.GetLocationAsync();
@@ -30,9 +29,10 @@ namespace WeatherFlex.ViewModels
 
         public async Task GetWeatherAsync(double latitude, double longitude)
         {
-            WeatherAPI = await weatherService.FetchWeather(latitude, longitude);
+            //WeatherAPI = await weatherService.FetchWeather(latitude, longitude);
+            //WeatherAPI.LocationProperties = await geolocationService.GetLocationPropertiesAsync(latitude, longitude);
 
-            WeatherAPI.LocationProperties = await geolocationService.GetLocationPropertiesAsync(latitude, longitude);
+            WeatherAPI = await WeatherData.GetFor(latitude, longitude);
         }
 
         public List<Temperature> GetHourlyTemperature()
