@@ -5,24 +5,46 @@ namespace WeatherFlex.Data
 {
     public class WeatherData
     {
-        readonly Dictionary<Tuple<double, double>, WeatherAPI> data = new();
+        readonly Dictionary<Tuple<double, double>, Tuple<WeatherAPI, DateTime>> data = new();
 
         static WeatherData instance;
+
+        async Task<WeatherAPI> FetchWeather(double latitude, double longitude)
+        {
+            WeatherAPI weatherApi = await new WeatherService().FetchWeather(latitude, longitude);
+            weatherApi.LocationProperties = await new GeolocationService().GetLocationPropertiesAsync(latitude, longitude);
+
+            return weatherApi;
+        }
 
         public static async Task<WeatherAPI> GetFor(double latitude, double longitude)
         {
             instance ??= new WeatherData();
 
             Tuple<double, double> location = new(latitude, longitude);
-            if (instance.data.ContainsKey(location))
+
+            WeatherAPI weatherApi;
+            try
             {
-                return instance.data[location];
+                var weather = instance.data[location];
+
+                TimeSpan timeSinceLastFetch = DateTime.Now - weather.Item2;
+
+                if (timeSinceLastFetch.TotalMinutes < 5)
+                {
+                    weatherApi = weather.Item1;
+                }
+                else
+                {
+                    weatherApi = await instance.FetchWeather(latitude, longitude);
+                    instance.data[location] = new(weatherApi, DateTime.Now);
+                }
             }
-
-            WeatherAPI weatherApi = await new WeatherService().FetchWeather(latitude, longitude);
-            weatherApi.LocationProperties = await new GeolocationService().GetLocationPropertiesAsync(latitude, longitude);
-
-            instance.data.Add(location, weatherApi);
+            catch
+            {
+                weatherApi = await instance.FetchWeather(latitude, longitude);
+                instance.data.Add(location, new(weatherApi, DateTime.Now));
+            }
 
             return weatherApi;
         }
