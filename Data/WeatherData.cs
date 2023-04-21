@@ -9,7 +9,7 @@ namespace WeatherFlex.Data
 
         static WeatherData instance;
 
-        async Task<WeatherAPI> FetchWeather(double latitude, double longitude)
+        static async Task<WeatherAPI> FetchWeather(double latitude, double longitude)
         {
             WeatherAPI weatherApi = await new WeatherService().FetchWeather(latitude, longitude);
             weatherApi.LocationProperties = await new GeolocationService().GetLocationPropertiesAsync(latitude, longitude);
@@ -24,25 +24,23 @@ namespace WeatherFlex.Data
             Tuple<double, double> location = new(latitude, longitude);
 
             WeatherAPI weatherApi;
-            try
+            if (instance.data.TryGetValue(location, out Tuple<WeatherAPI, DateTime> dataValue))
             {
-                var weather = instance.data[location];
-
-                TimeSpan timeSinceLastFetch = DateTime.Now - weather.Item2;
+                TimeSpan timeSinceLastFetch = DateTime.Now - dataValue.Item2;
 
                 if (timeSinceLastFetch.TotalMinutes < 5)
                 {
-                    weatherApi = weather.Item1;
+                    weatherApi = dataValue.Item1;
                 }
                 else
                 {
-                    weatherApi = await instance.FetchWeather(latitude, longitude);
+                    weatherApi = await FetchWeather(latitude, longitude);
                     instance.data[location] = new(weatherApi, DateTime.Now);
                 }
             }
-            catch
+            else
             {
-                weatherApi = await instance.FetchWeather(latitude, longitude);
+                weatherApi = await FetchWeather(latitude, longitude);
                 instance.data.Add(location, new(weatherApi, DateTime.Now));
             }
 
