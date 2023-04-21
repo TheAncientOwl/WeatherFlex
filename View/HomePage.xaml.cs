@@ -1,6 +1,5 @@
 ﻿using WeatherFlex.View;
 using WeatherFlex.ViewModels;
-using WeatherFlex.Services;
 using WeatherFlex.View.Feedback;
 
 namespace WeatherFlex;
