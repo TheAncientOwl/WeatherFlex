@@ -15,12 +15,7 @@ namespace WeatherFlex.Services
         }
         private static readonly string API_LINK = "https://api.open-meteo.com/v1/forecast?" + QueryParameters.Location + QueryParameters.CurrentWeather + QueryParameters.Hourly + QueryParameters.ForecastDays;
 
-        readonly HttpClient httpClient;
-
-        public WeatherService()
-        {
-            httpClient = new HttpClient();
-        }
+        readonly HttpClient httpClient = new();
 
         public async Task<WeatherAPI> FetchWeather(double latitude, double longitude)
         {
