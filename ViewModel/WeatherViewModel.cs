@@ -1,5 +1,4 @@
-﻿using System.Windows.Input;
-using WeatherFlex.Data;
+﻿using WeatherFlex.Data;
 using WeatherFlex.Model.Weather;
 using WeatherFlex.Services;
 
@@ -9,14 +8,12 @@ namespace WeatherFlex.ViewModels
     {
         static readonly int TEMPERATURES_COUNT_LIMIT = 25;
 
-        readonly WeatherService weatherService;
         readonly GeolocationService geolocationService;
 
         public WeatherAPI WeatherAPI { get; private set; }
 
-        public WeatherViewModel(WeatherService weatherService, GeolocationService geolocationService)
+        public WeatherViewModel(GeolocationService geolocationService)
         {
-            this.weatherService = weatherService;
             this.geolocationService = geolocationService;
         }
 
@@ -29,9 +26,6 @@ namespace WeatherFlex.ViewModels
 
         public async Task GetWeatherAsync(double latitude, double longitude)
         {
-            //WeatherAPI = await weatherService.FetchWeather(latitude, longitude);
-            //WeatherAPI.LocationProperties = await geolocationService.GetLocationPropertiesAsync(latitude, longitude);
-
             WeatherAPI = await WeatherData.GetFor(latitude, longitude);
         }
 
