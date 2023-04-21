@@ -21,7 +21,7 @@ namespace WeatherFlex.ViewModels
 
         public async Task GetWeatherAsync(double latitude, double longitude)
         {
-            WeatherAPI = await WeatherData.GetFor(latitude, longitude);
+            WeatherAPI = await WeatherData.Get(latitude, longitude);
         }
 
         public List<Temperature> GetHourlyTemperature()
