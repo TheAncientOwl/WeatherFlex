@@ -16,7 +16,7 @@ public partial class HomePage : ContentPage
     {
         Content = new InfoView("Loading data...");
 
-        WeatherViewModel weatherViewModel = new(new WeatherService(), new GeolocationService());
+        WeatherViewModel weatherViewModel = new(new GeolocationService());
         await weatherViewModel.GetUserWeatherAsync();
 
         Content = new WeatherView(weatherViewModel, Window);
