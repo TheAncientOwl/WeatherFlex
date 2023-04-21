@@ -24,10 +24,14 @@ namespace WeatherFlex.Services
 
         public async Task<WeatherAPI> FetchWeather(double latitude, double longitude)
         {
-            var link = string.Format(API_LINK, ((float)latitude).ToString(CultureInfo.GetCultureInfo("en-US")), ((float)longitude).ToString(CultureInfo.GetCultureInfo("en-US")));
-            WeatherAPI weather = await httpClient.GetFromJsonAsync<WeatherAPI>(link);
+            CultureInfo cultureInfo = CultureInfo.GetCultureInfo("en-US");
 
-            return weather;
+            var link = string.Format(
+                API_LINK, 
+                ((float)latitude).ToString(cultureInfo), 
+                ((float)longitude).ToString(cultureInfo));
+
+            return await httpClient.GetFromJsonAsync<WeatherAPI>(link);
         }
     }
 }
