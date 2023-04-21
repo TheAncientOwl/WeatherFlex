@@ -17,7 +17,7 @@ namespace WeatherFlex.Data
             return weatherApi;
         }
 
-        public static async Task<WeatherAPI> GetFor(double latitude, double longitude)
+        public static async Task<WeatherAPI> Get(double latitude, double longitude)
         {
             instance ??= new WeatherData();
 

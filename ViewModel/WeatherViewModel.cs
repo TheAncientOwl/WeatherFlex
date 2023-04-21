@@ -8,25 +8,20 @@ namespace WeatherFlex.ViewModels
     {
         static readonly int TEMPERATURES_COUNT_LIMIT = 25;
 
-        readonly GeolocationService geolocationService;
-
         public WeatherAPI WeatherAPI { get; private set; }
 
-        public WeatherViewModel(GeolocationService geolocationService)
-        {
-            this.geolocationService = geolocationService;
-        }
+        public WeatherViewModel() { }
 
         public async Task GetUserWeatherAsync()
         {
-            Location userLocation = await geolocationService.GetLocationAsync();
+            Location userLocation = await new GeolocationService().GetLocationAsync();
 
             await GetWeatherAsync(userLocation.Latitude, userLocation.Longitude);
         }
 
         public async Task GetWeatherAsync(double latitude, double longitude)
         {
-            WeatherAPI = await WeatherData.GetFor(latitude, longitude);
+            WeatherAPI = await WeatherData.Get(latitude, longitude);
         }
 
         public List<Temperature> GetHourlyTemperature()
