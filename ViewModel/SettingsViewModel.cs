@@ -13,9 +13,12 @@ namespace WeatherFlex.ViewModel
 
         public Command ToggleCelsius { get; set; }
 
+        public Command ToggleFahrenheit { get; set; }
+
         public SettingsViewModel()
         {
             ToggleCelsius = new Command(TogglePreffersCelsius);
+            ToggleFahrenheit = new Command(TogglePreffersFahrenheit);
         }
 
         async void TogglePreffersCelsius()
@@ -25,6 +28,19 @@ namespace WeatherFlex.ViewModel
                 SettingsDao dao = new();
                 
                 userSettings.PreffersCelsius = false;
+                await dao.Update(userSettings);
+
+                await dao.CloseAsync();
+            }
+        }
+
+        async void TogglePreffersFahrenheit()
+        {
+            if (!userSettings.PreffersCelsius)
+            {
+                SettingsDao dao = new();
+
+                userSettings.PreffersCelsius = true;
                 await dao.Update(userSettings);
 
                 await dao.CloseAsync();
