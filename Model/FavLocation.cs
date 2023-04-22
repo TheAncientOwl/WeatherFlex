@@ -19,5 +19,7 @@ namespace WeatherFlex.Model
 
         [Column("longitude")]
         public double Longitude { get; set; }
+
+        public string FlagUrl { get => "https://flagcdn.com/40x30/" + CountryCode + ".png"; }
     }
 }
