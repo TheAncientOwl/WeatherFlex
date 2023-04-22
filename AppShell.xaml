@@ -19,4 +19,8 @@
         Title="Settings"
         ContentTemplate="{DataTemplate view:SettingsPage}"
         Route="SettingsPage" />
+    <ShellContent
+        Title="Search page"
+        ContentTemplate="{DataTemplate view:SearchPage}"
+        Route="SearchPage" />
 </Shell>

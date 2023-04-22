@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
+    
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherFlex.View.AboutPage"
@@ -57,7 +58,12 @@ Whether you're a casual weather watcher or a serious meteorology enthusiast, Wea
 
             <VerticalStackLayout HorizontalOptions="Center" >
                 <Label Text="Weather API:" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold" TextDecorations="Underline" />
-                <Label Text=" https://api.open-meteo.com/" FontSize="20" HorizontalOptions="Center"/>
+                <Label Text=" https://open-meteo.com/en/docs" FontSize="20" HorizontalOptions="Center" TextColor="Cyan" TextDecorations="Underline" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}"
+                                           CommandParameter="https://open-meteo.com/en/docs"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </VerticalStackLayout>
 
             <HorizontalStackLayout HorizontalOptions="Center">

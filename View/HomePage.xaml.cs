@@ -1,6 +1,7 @@
 ﻿using WeatherFlex.View;
 using WeatherFlex.Model;
 using WeatherFlex.Services;
+using WeatherFlex.ViewModels;
 using WeatherFlex.View.Feedback;
 using WeatherFlex.Database;
 using WeatherFlex.ViewModels;
@@ -18,7 +19,7 @@ public partial class HomePage : ContentPage
     {
         Content = new InfoView("Loading data...");
 
-        WeatherViewModel weatherViewModel = new(new WeatherService(), new GeolocationService());
+        WeatherViewModel weatherViewModel = new();
         await weatherViewModel.GetUserWeatherAsync();
 
         SettingsDao settingsDao = new();
