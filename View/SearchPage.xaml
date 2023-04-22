@@ -23,7 +23,6 @@
             </Border.Shadow>
         </Border>
 
-
         <VerticalStackLayout WidthRequest="350" Spacing="15">
             <Label Text="Enter city:" FontAttributes="Bold" TextDecorations="Underline"/>
             <Entry Placeholder="Type your city here" x:Name="entryCity"/>
@@ -35,9 +34,5 @@
         </VerticalStackLayout>
 
         <Button Text="Search" WidthRequest="100" Clicked="OnSearchButtonClicked" />
-
     </StackLayout>
-
-
-
 </ContentPage>

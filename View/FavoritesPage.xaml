@@ -18,7 +18,7 @@
                 <Entry Placeholder="Type your postal code here" x:Name="entryCountry"/>
             </VerticalStackLayout>
 
-            <Button Text="Add" WidthRequest="100" Clicked="OnAddButtonClicked" />
+            <!--<Button Text="Add" WidthRequest="100" Clicked="OnAddButtonClicked" />-->
 
             <ListView x:Name="listViewFavorite">
                 <ListView.ItemTemplate>
@@ -55,8 +55,8 @@
                                         </HorizontalStackLayout>
                                     </HorizontalStackLayout>
 
+                                        <!--Clicked="Button_Clicked_Favorites"-->
                                     <Button Text="Delete"
-                                        Clicked="Button_Clicked_Favorites"
                                         HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
                                         />
                                 </HorizontalStackLayout>

@@ -1,10 +1,8 @@
 ﻿using WeatherFlex.View;
 using WeatherFlex.Model;
-using WeatherFlex.Services;
 using WeatherFlex.ViewModels;
 using WeatherFlex.View.Feedback;
 using WeatherFlex.Database;
-using WeatherFlex.ViewModels;
 
 namespace WeatherFlex;
 

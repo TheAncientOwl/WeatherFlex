@@ -10,7 +10,6 @@ namespace WeatherFlex.ViewModel
         public bool PreffersCelsius { get => userSettings.PreffersCelsius; }
 
         public bool PreffersFahrenheit { get => !userSettings.PreffersCelsius; set { } }
-
         
         public async Task TogglePreffersCelsius()
         {

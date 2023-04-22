@@ -12,15 +12,15 @@
         ContentTemplate="{DataTemplate local:HomePage}"
         Route="HomePage" />
     <ShellContent
-        Title="About us"
-        ContentTemplate="{DataTemplate view:AboutPage}"
-        Route="AboutPage" />
+        Title="Search"
+        ContentTemplate="{DataTemplate view:SearchPage}"
+        Route="SearchPage" />
     <ShellContent
         Title="Settings"
         ContentTemplate="{DataTemplate view:SettingsPage}"
         Route="SettingsPage" />
     <ShellContent
-        Title="Search page"
-        ContentTemplate="{DataTemplate view:SearchPage}"
-        Route="SearchPage" />
+        Title="About us"
+        ContentTemplate="{DataTemplate view:AboutPage}"
+        Route="AboutPage" />
 </Shell>

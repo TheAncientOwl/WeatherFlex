@@ -8,7 +8,6 @@ namespace WeatherFlex.Model
         [Column("id"), PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
-
         [Column("preffers_celsius")]
         public bool PreffersCelsius { get; set; }
 
