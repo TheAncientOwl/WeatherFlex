@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:WeatherFlex.ViewModel"
+             x:Class="WeatherFlex.View.WeatherForecastPage"
+             x:DataType="viewModel:WeatherForecastModel"
+             Title="WeatherForecastPage">
+
+    <StackLayout BindableLayout.ItemsSource="{Binding WeatherForecast.DailyWeatherUnit}">
+        <BindableLayout.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding Time}" />
+                    <Label Text="{Binding Temperature2mMax}" Grid.Column="1" />
+                    <Label Text="{Binding Temperature2mMin}" Grid.Column="2" />
+                    <Label Text="{Binding PrecipitationProbabilityMax}" Grid.Column="3" />
+                </Grid>
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+    </StackLayout>
+
+
+</ContentPage>
