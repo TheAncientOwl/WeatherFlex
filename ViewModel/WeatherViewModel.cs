@@ -1,5 +1,4 @@
-﻿using WeatherFlex.Database;
-using WeatherFlex.Model;
+﻿using WeatherFlex.Model;
 using WeatherFlex.Model.Weather;
 using WeatherFlex.Services;
 
@@ -53,7 +52,7 @@ namespace WeatherFlex.ViewModels
                     temperatures.Add(new Temperature()
                     {
                         Time = temperatureForecast.Time[i],
-                        Value = userSettings.PreffersCelsius ? temperatureForecast.Temperature[i] : ToFahrenheit(temperatureForecast.Temperature[i]),
+                        Value = Math.Round(userSettings.PreffersCelsius ? temperatureForecast.Temperature[i] : ToFahrenheit(temperatureForecast.Temperature[i]), 2),
                         Units = userSettings.PreffersCelsius ? WeatherAPI.WeatherUnits.Units : "F",
                         PrecipitationProbability = temperatureForecast.PrecipitationProbability[i],
                         WeatherCode = WeatherCode.FromCode(temperatureForecast.Weathercode[i])

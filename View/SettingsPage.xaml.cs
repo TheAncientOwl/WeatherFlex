@@ -27,11 +27,11 @@ public partial class SettingsPage : ContentPage
 
     private async void Celsius_TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
-        await viewModel.TogglePreffersCelsius();
+        await viewModel.TogglePreffersFahrenheit();
     }
 
     private async void Fahrenheit_TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
-        await viewModel.TogglePreffersFahrenheit();
+        await viewModel.TogglePreffersCelsius();
     }
 }
