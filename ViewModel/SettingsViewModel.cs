@@ -1,6 +1,5 @@
 ﻿using WeatherFlex.Database;
 using WeatherFlex.Model;
-using System.Windows.Input;
 
 namespace WeatherFlex.ViewModel
 {
@@ -12,17 +11,8 @@ namespace WeatherFlex.ViewModel
 
         public bool PreffersFahrenheit { get => !userSettings.PreffersCelsius; set { } }
 
-        //public ICommand ToggleCelsius { get; set; }
-
-        //public Command ToggleFahrenheit { get; set; }
-
-        //public SettingsViewModel()
-        //{
-        //    ToggleCelsius = TogglePreffersCelsius;
-        //    ToggleFahrenheit = TogglePreffersFahrenheit;
-        //}
-
-        public async void TogglePreffersCelsius(object sender, TappedEventArgs args)
+        
+        public async Task TogglePreffersCelsius()
         {
             if (userSettings.PreffersCelsius)
             {
@@ -35,7 +25,7 @@ namespace WeatherFlex.ViewModel
             }
         }
 
-        public async void TogglePreffersFahrenheit(object sender, TappedEventArgs args)
+        public async Task TogglePreffersFahrenheit()
         {
             if (!userSettings.PreffersCelsius)
             {

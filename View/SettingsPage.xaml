@@ -29,17 +29,15 @@
 
             <RadioButton Content="Celsius" IsChecked="{Binding PreffersCelsius}">
                 <RadioButton.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="{Binding TogglePreffersCelsius}" />
+                    <TapGestureRecognizer Tapped="Celsius_TapGestureRecognizer_Tapped" />
                 </RadioButton.GestureRecognizers>
             </RadioButton>
-            <RadioButton Content="Celsius" IsChecked="{Binding PreffersFahrenheit}">
+
+            <RadioButton Content="Fahrenheit" IsChecked="{Binding PreffersFahrenheit}">
                 <RadioButton.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="{Binding TogglePreffersFahrenheit}" />
+                    <TapGestureRecognizer Tapped="Fahrenheit_TapGestureRecognizer_Tapped" />
                 </RadioButton.GestureRecognizers>
             </RadioButton>
-
-           
-
         </HorizontalStackLayout>
 
         <!--<Label>
