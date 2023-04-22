@@ -52,8 +52,8 @@ namespace WeatherFlex.ViewModels
                     temperatures.Add(new Temperature()
                     {
                         Time = temperatureForecast.Time[i],
-                        Value = Math.Round(userSettings.PreffersCelsius ? temperatureForecast.Temperature[i] : ToFahrenheit(temperatureForecast.Temperature[i]), 2),
-                        Units = userSettings.PreffersCelsius ? WeatherAPI.WeatherUnits.Units : "F",
+                        Value = userSettings.PreffersCelsius ? temperatureForecast.Temperature[i] : ToFahrenheit(temperatureForecast.Temperature[i]),
+                        Units = userSettings.PreffersCelsius ? WeatherAPI.WeatherUnits.Units : "°F",
                         PrecipitationProbability = temperatureForecast.PrecipitationProbability[i],
                         WeatherCode = WeatherCode.FromCode(temperatureForecast.Weathercode[i])
                     });
@@ -65,6 +65,6 @@ namespace WeatherFlex.ViewModels
             return temperatures;
         }
 
-        static double ToFahrenheit(double temperatureC) => temperatureC * 1.8 + 32;
+        public static double ToFahrenheit(double temperatureC) => Math.Round(temperatureC * 1.8 + 32, 2);
     }
 }
