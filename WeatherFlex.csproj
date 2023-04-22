@@ -49,6 +49,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="View\FavoritesPage.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\poza_weather_flex.png" />
 	</ItemGroup>
 
@@ -67,6 +71,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="View\AboutPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\FavoritesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Feedback\ErrorView.xaml">

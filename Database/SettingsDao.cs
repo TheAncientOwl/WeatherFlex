@@ -3,8 +3,13 @@ using WeatherFlex.Model;
 
 namespace WeatherFlex.Database
 {
-    public class SettingsDao
+    public class SettingsDao : IDisposable
     {
+        static readonly Settings DEFAULT_SETTINGS = new Settings()
+        {
+            PreffersCelsius = true,
+        };
+
         SQLiteAsyncConnection connection;
 
         public async Task InitDatabase()
@@ -19,7 +24,7 @@ namespace WeatherFlex.Database
             }
         }
 
-        public async Task<int> Insert(Settings settings)
+        async Task<int> Insert(Settings settings)
         {
             await InitDatabase();
 
@@ -32,7 +37,16 @@ namespace WeatherFlex.Database
 
             List<Settings> list = await connection.QueryAsync<Settings>("SELECT * FROM settings");
 
-            return list[0];
+            if (list.Count() == 0)
+            {
+                await Insert(DEFAULT_SETTINGS);
+
+                return DEFAULT_SETTINGS;
+            }
+            else
+            {
+                return list[0];
+            }
         }
 
         public async Task<int> Update(Settings settings)
@@ -42,6 +56,11 @@ namespace WeatherFlex.Database
             await connection.ExecuteAsync("DELETE FROM settings WHERE 1 = 1");
 
             return await Insert(settings);
+        }
+
+        public async void Dispose()
+        {
+            await connection.CloseAsync();
         }
     }
 }

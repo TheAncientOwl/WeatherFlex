@@ -17,6 +17,6 @@ public partial class SettingsPage : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-
+        Navigation.PushAsync(new FavoritesPage());
     }
 }

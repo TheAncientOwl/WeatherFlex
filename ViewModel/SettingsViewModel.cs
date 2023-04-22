@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace WeatherFlex.ViewModel
 {
-    internal class SettingsViewModel
+    public class SettingsViewModel
     {
+        public bool PreffersCelsius
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public bool PreffersFahrenheit { get; }
+
     }
 }

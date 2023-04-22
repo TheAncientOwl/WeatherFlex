@@ -27,6 +27,23 @@
             <RadioButton Content="Celsius" IsChecked="true" />
             <RadioButton Content="Fahrenheit " />
         </HorizontalStackLayout>
+
+        <!--<Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Alternatively, click " />
+                    <Span Text="here"
+                  TextColor="Blue"
+                  TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://learn.microsoft.com/dotnet/maui/" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                    <Span Text=" to view .NET MAUI documentation." />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>-->
         <Button Text="Favorite settings"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
