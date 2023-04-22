@@ -19,8 +19,4 @@
         Title="Settings"
         ContentTemplate="{DataTemplate view:SettingsPage}"
         Route="SettingsPage" />
-    <ShellContent
-        Title="Favorites"
-        ContentTemplate="{DataTemplate view:FavoritesPage}"
-        Route="FavoritesPage" />
 </Shell>
