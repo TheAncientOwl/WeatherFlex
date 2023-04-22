@@ -1,3 +1,4 @@
+using WeatherFlex.Model;
 using WeatherFlex.ViewModels;
 
 namespace WeatherFlex.View;
@@ -6,7 +7,7 @@ public partial class WeatherView : ContentView
 {
 	readonly Window window;
 
-	public WeatherView(WeatherViewModel viewModel, Window window)
+	public WeatherView(WeatherViewModel viewModel, Window window, Settings userSettings)
 	{
 		InitializeComponent();
 
@@ -14,7 +15,7 @@ public partial class WeatherView : ContentView
 
 		BindingContext = viewModel.WeatherAPI;
 
-		hourlyWeather.ItemsSource = viewModel.GetHourlyTemperature();
+		hourlyWeather.ItemsSource = viewModel.GetHourlyTemperature(userSettings);
 
 		hourlyWeatherScrollView.MaximumWidthRequest = ForecastViewWidth;
 		

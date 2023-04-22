@@ -1,18 +1,19 @@
 namespace WeatherFlex.View;
-using WeatherFlex.Database;
+using WeatherFlex.ViewModel;
+
 public partial class SettingsPage : ContentPage
 {
 	public SettingsPage()
 	{
 		InitializeComponent();
-
 	}
 
     protected override async void OnAppearing()
     {
-        var settings = new SettingsDao();
+        var viewModel = new SettingsViewModel();
+        await viewModel.LoadSettingsAsync();
 
-        BindingContext = await settings.Get();
+        BindingContext = viewModel;
     }
 
     private void Button_Clicked(object sender, EventArgs e)

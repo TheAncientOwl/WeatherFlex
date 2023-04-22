@@ -3,7 +3,7 @@ using WeatherFlex.Model;
 
 namespace WeatherFlex.Database
 {
-    public class SettingsDao : IDisposable
+    public class SettingsDao
     {
         static readonly Settings DEFAULT_SETTINGS = new Settings()
         {
@@ -58,7 +58,7 @@ namespace WeatherFlex.Database
             return await Insert(settings);
         }
 
-        public async void Dispose()
+        public async Task CloseAsync()
         {
             await connection.CloseAsync();
         }

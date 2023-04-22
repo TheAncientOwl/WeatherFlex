@@ -1,22 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using WeatherFlex.Database;
+using WeatherFlex.Model;
 
 namespace WeatherFlex.ViewModel
 {
     public class SettingsViewModel
     {
-        public bool PreffersCelsius
+        Settings userSettings;
+
+        public bool PreffersCelsius { get => userSettings.PreffersCelsius; }
+
+        public bool PreffersFahrenheit { get => !userSettings.PreffersCelsius; set { } }
+
+        public Command ToggleCelsius { get; set; }
+
+        public SettingsViewModel()
         {
-            get
+            ToggleCelsius = new Command(TogglePreffersCelsius);
+        }
+
+        async void TogglePreffersCelsius()
+        {
+            if (userSettings.PreffersCelsius)
             {
-                return false;
+                SettingsDao dao = new();
+                
+                userSettings.PreffersCelsius = false;
+                await dao.Update(userSettings);
+
+                await dao.CloseAsync();
             }
         }
 
-        public bool PreffersFahrenheit { get; }
+        public async Task LoadSettingsAsync()
+        {
+            SettingsDao dao = new();
 
+            userSettings = await dao.Get();
+
+            await dao.CloseAsync();
+        }
     }
 }
