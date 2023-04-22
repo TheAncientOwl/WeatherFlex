@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:WeatherFlex.Model"
+             x:Class="WeatherFlex.View.FavoritesPage"
+             x:DataType="model:FavLocation"
+             Title="FavoritesPage">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="15">
+            <VerticalStackLayout WidthRequest="350" Spacing="15">
+                <Label Text="Enter city:" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Entry Placeholder="Type your city here" x:Name="entryCity"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout WidthRequest="350" Spacing="15">
+                <Label Text="Enter country code:" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Entry Placeholder="Type your postal code here" x:Name="entryCountry"/>
+            </VerticalStackLayout>
+
+            <Button Text="Add" WidthRequest="100" Clicked="OnAddButtonClicked" />
+
+            <ListView x:Name="listViewFavorite">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <HorizontalStackLayout Margin="20">
+                                <HorizontalStackLayout Spacing="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Image
+                                    Source="{Binding FlagUrl}"
+                                    HeightRequest="30"
+                                    WidthRequest="30"
+                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                    />
+
+                                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Label Text="{Binding City}"
+                                           FontSize="18"/>
+                                        <Label Text=", "
+                                           Margin="0,0,5,0"
+                                           FontSize="16"/>
+                                        <Label Text="{Binding CountryCode}"
+                                           FontSize="16"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout Spacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                        <HorizontalStackLayout Spacing="5">
+                                            <Label Text="lat: " FontSize="16"/>
+                                            <Label Text="{Binding Latitude}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </HorizontalStackLayout>
+
+                                        <HorizontalStackLayout Spacing="5">
+                                            <Label Text="long: " FontSize="16"/>
+                                            <Label Text="{Binding Longitude}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                        </HorizontalStackLayout>
+                                    </HorizontalStackLayout>
+
+                                    <Button Text="Delete"
+                                        Clicked="Button_Clicked_Favorites"
+                                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                        />
+                                </HorizontalStackLayout>
+                            </HorizontalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+    

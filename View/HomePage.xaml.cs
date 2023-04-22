@@ -1,6 +1,10 @@
 ﻿using WeatherFlex.View;
+using WeatherFlex.Model;
+using WeatherFlex.Services;
 using WeatherFlex.ViewModels;
 using WeatherFlex.View.Feedback;
+using WeatherFlex.Database;
+using WeatherFlex.ViewModels;
 
 namespace WeatherFlex;
 
@@ -18,6 +22,10 @@ public partial class HomePage : ContentPage
         WeatherViewModel weatherViewModel = new();
         await weatherViewModel.GetUserWeatherAsync();
 
-        Content = new WeatherView(weatherViewModel, Window);
+        SettingsDao settingsDao = new();
+        Settings userSettings = await settingsDao.Get();
+        await settingsDao.CloseAsync();
+
+        Content = new WeatherView(weatherViewModel, Window, userSettings);
     }
 }

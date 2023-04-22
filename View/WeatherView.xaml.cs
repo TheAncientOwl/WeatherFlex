@@ -1,30 +1,39 @@
+using WeatherFlex.Model;
+using WeatherFlex.Model.Weather;
 using WeatherFlex.ViewModels;
 
 namespace WeatherFlex.View;
 
 public partial class WeatherView : ContentView
 {
-	readonly Window window;
+    readonly Window window;
 
-	public WeatherView(WeatherViewModel viewModel, Window window)
-	{
-		InitializeComponent();
+    public WeatherView(WeatherViewModel viewModel, Window window, Settings userSettings)
+    {
+        InitializeComponent();
 
-		this.window = window;
+        this.window = window;
 
-		BindingContext = viewModel.WeatherAPI;
+        WeatherAPI weatherApi = viewModel.WeatherAPI;
+        if (!userSettings.PreffersCelsius)
+        {
+            weatherApi.WeatherUnits.Units = "°F";
+            weatherApi.CurrentWeather.Temperature = WeatherViewModel.ToFahrenheit(weatherApi.CurrentWeather.Temperature);
+        }
 
-		hourlyWeather.ItemsSource = viewModel.GetHourlyTemperature();
+        BindingContext = weatherApi;
 
-		hourlyWeatherScrollView.MaximumWidthRequest = ForecastViewWidth;
-		
-		window.SizeChanged += WindowSizeChanged;
-	}
+        hourlyWeather.ItemsSource = viewModel.GetHourlyTemperature(userSettings);
+
+        hourlyWeatherScrollView.MaximumWidthRequest = ForecastViewWidth;
+
+        window.SizeChanged += WindowSizeChanged;
+    }
 
     void WindowSizeChanged(object sender, EventArgs e)
-	{
-		hourlyWeatherScrollView.MaximumWidthRequest = ForecastViewWidth;
-	}
+    {
+        hourlyWeatherScrollView.MaximumWidthRequest = ForecastViewWidth;
+    }
 
-	double ForecastViewWidth { get => window.Width - window.Width * 0.05; }
+    double ForecastViewWidth { get => window.Width - window.Width * 0.05; }
 }

@@ -1,3 +1,4 @@
+﻿using WeatherFlex.Model;
 ﻿using WeatherFlex.Data;
 using WeatherFlex.Model.Weather;
 using WeatherFlex.Services;
@@ -24,15 +25,15 @@ namespace WeatherFlex.ViewModels
             WeatherAPI = await WeatherData.Get(latitude, longitude);
         }
 
-        public List<Temperature> GetHourlyTemperature()
+        public List<Temperature> GetHourlyTemperature(Settings userSettings)
         {
             DateTime now = DateTime.Now;
 
             List<Temperature> temperatures = new();
             TemperatureForecast temperatureForecast = WeatherAPI.TemperatureForecast;
 
-            for (int i = 0, temperaturesCountLimit = TEMPERATURES_COUNT_LIMIT; 
-                i < temperatureForecast.Temperature.Count && temperaturesCountLimit > 0; 
+            for (int i = 0, temperaturesCountLimit = TEMPERATURES_COUNT_LIMIT;
+                i < temperatureForecast.Temperature.Count && temperaturesCountLimit > 0;
                 i++)
             {
                 DateTime time = temperatureForecast.GetDateTimeAt(i);
@@ -43,8 +44,8 @@ namespace WeatherFlex.ViewModels
                     temperatures.Add(new Temperature()
                     {
                         Time = temperatureForecast.Time[i],
-                        Value = temperatureForecast.Temperature[i],
-                        Units = WeatherAPI.WeatherUnits.Units,
+                        Value = userSettings.PreffersCelsius ? temperatureForecast.Temperature[i] : ToFahrenheit(temperatureForecast.Temperature[i]),
+                        Units = userSettings.PreffersCelsius ? WeatherAPI.WeatherUnits.Units : "°F",
                         PrecipitationProbability = temperatureForecast.PrecipitationProbability[i],
                         WeatherCode = WeatherCode.FromCode(temperatureForecast.Weathercode[i])
                     });
@@ -55,5 +56,7 @@ namespace WeatherFlex.ViewModels
 
             return temperatures;
         }
+
+        public static double ToFahrenheit(double temperatureC) => Math.Round(temperatureC * 1.8 + 32, 2);
     }
 }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:WeatherFlex.ViewModel"
+             x:DataType="viewModel:SettingsViewModel"
+             x:Class="WeatherFlex.View.SettingsPage"
+             Title="SettingsPage">
+    <VerticalStackLayout 
+        Padding="20">
+        
+        <Label 
+            FontSize="25"
+            FontAttributes="Bold"
+            Text="Settings"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label
+            Margin="0, 50, 0, 10"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Text="Choose temperature scale" />
+        <HorizontalStackLayout
+            VerticalOptions="Center" 
+            HorizontalOptions="Center">
+
+            <!--<RadioButton Content="Celsius" IsChecked="{Binding PreffersCelsius}" />-->
+            <!--<RadioButton Content="Fahrenheit " IsChecked="{Binding PreffersFahrenheit}" />-->
+
+            <RadioButton Content="Celsius" IsChecked="{Binding PreffersCelsius}">
+                <RadioButton.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Celsius_TapGestureRecognizer_Tapped" />
+                </RadioButton.GestureRecognizers>
+            </RadioButton>
+
+            <RadioButton Content="Fahrenheit" IsChecked="{Binding PreffersFahrenheit}">
+                <RadioButton.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Fahrenheit_TapGestureRecognizer_Tapped" />
+                </RadioButton.GestureRecognizers>
+            </RadioButton>
+        </HorizontalStackLayout>
+
+        <!--<Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Alternatively, click " />
+                    <Span Text="here"
+                  TextColor="Blue"
+                  TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://learn.microsoft.com/dotnet/maui/" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                    <Span Text=" to view .NET MAUI documentation." />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>-->
+        <Button Text="Favorite settings"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked"    
+                Margin="0,20,0,0"/>
+
+    </VerticalStackLayout>
+    
+    
+
+</ContentPage>
