@@ -24,8 +24,22 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center">
 
-            <RadioButton Content="Celsius" IsChecked="{Binding PreffersCelsius}" />
-            <RadioButton Content="Fahrenheit " IsChecked="{Binding PreffersFahrenheit}" />
+            <!--<RadioButton Content="Celsius" IsChecked="{Binding PreffersCelsius}" />-->
+            <!--<RadioButton Content="Fahrenheit " IsChecked="{Binding PreffersFahrenheit}" />-->
+
+            <RadioButton Content="Celsius" IsChecked="{Binding PreffersCelsius}">
+                <RadioButton.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="{Binding TogglePreffersCelsius}" />
+                </RadioButton.GestureRecognizers>
+            </RadioButton>
+            <RadioButton Content="Celsius" IsChecked="{Binding PreffersFahrenheit}">
+                <RadioButton.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="{Binding TogglePreffersFahrenheit}" />
+                </RadioButton.GestureRecognizers>
+            </RadioButton>
+
+           
+
         </HorizontalStackLayout>
 
         <!--<Label>
