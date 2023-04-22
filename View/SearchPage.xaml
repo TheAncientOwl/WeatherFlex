@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherFlex.View.SearchPage"
-             Title="SearchPage">
+             Title="Search page">
     <StackLayout
-            Spacing="50"
+            Spacing="30"
             Padding="50,50,50,50"
             VerticalOptions="Start"
             HorizontalOptions="Center">
@@ -12,16 +12,32 @@
         <Border
                 MaximumWidthRequest="1100"
                 Stroke="Black"
-                StrokeThickness="5"
+                StrokeThickness="4"
                 StrokeShape="RoundRectangle 20"
                 Padding="25,25,25,25" >
-           
-            <Label Text="~ Write the location you want to find info weather about ~" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold" TextDecorations="Underline" />
-        
+            <Label Text="~ Write the location you want to find info about ~" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold" TextDecorations="Underline" />
+            <Border.Shadow>
+                <Shadow Brush="Black"
+                        Offset="10,10"
+                        Opacity=".8"/>
+            </Border.Shadow>
         </Border>
 
-        <SearchBar Placeholder="Search location..." />
+
+        <VerticalStackLayout WidthRequest="350" Spacing="15">
+            <Label Text="Enter city:" FontAttributes="Bold" TextDecorations="Underline"/>
+            <Entry Placeholder="Type your city here" x:Name="entryCity"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout WidthRequest="350" Spacing="15">
+            <Label Text="Enter country code:" FontAttributes="Bold" TextDecorations="Underline"/>
+            <Entry Placeholder="Type your postal code here" x:Name="entryCountry"/>
+        </VerticalStackLayout>
+
+        <Button Text="Search" WidthRequest="100" Clicked="OnSearchButtonClicked" />
 
     </StackLayout>
-    
+
+
+
 </ContentPage>

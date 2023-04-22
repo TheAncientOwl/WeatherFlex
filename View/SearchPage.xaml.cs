@@ -12,6 +12,14 @@ public partial class SearchPage : ContentPage
        
     }
 
+    private async void OnSearchButtonClicked(object sender, EventArgs e)
+    {
+        var city = entryCity.Text;
+        var country = entryCountry.Text;
+
+    }
+
+
 }
 
 
