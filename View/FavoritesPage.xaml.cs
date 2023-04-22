@@ -19,9 +19,4 @@ public partial class FavoritesPage : ContentPage
 
         await favLocationsDao.CloseAsync();
     }
-
-    private void Button_Clicked_Favorites(object sender, EventArgs e)
-    {
-
-    }
 }
