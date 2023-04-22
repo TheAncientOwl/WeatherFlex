@@ -74,6 +74,9 @@
 	  <MauiXaml Update="View\Feedback\InfoView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\SearchPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\WeatherView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

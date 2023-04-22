@@ -15,5 +15,9 @@
         Title="About us"
         ContentTemplate="{DataTemplate view:AboutPage}"
         Route="AboutPage" />
+    <ShellContent
+        Title="Search page"
+        ContentTemplate="{DataTemplate view:SearchPage}"
+        Route="SearchPage" />
     
 </Shell>
