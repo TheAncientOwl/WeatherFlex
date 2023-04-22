@@ -12,5 +12,7 @@ namespace WeatherFlex.Model
         [Column("preffers_celsius")]
         public bool PreffersCelsius { get; set; }
 
+        [Column("fetch_new_weather_delay")]
+        public int WeatherDelay { get; set; }
     }
 }
