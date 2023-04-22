@@ -6,7 +6,8 @@ namespace WeatherFlex.Services
 {
     public class GeolocationService
     {
-        static readonly string GEOLOCATION_API_LINK = "https://api.geoapify.com/v1/geocode/reverse?lat={0}&lon={1}&apiKey=440a320e3a31460eb65e2b2d5bbb53dd";
+        static readonly string REVERSE_GEOLOCATION_API_LINK = "https://api.geoapify.com/v1/geocode/reverse?lat={0}&lon={1}&apiKey=440a320e3a31460eb65e2b2d5bbb53dd";
+        static readonly string GEOLOCATION_API_LINK = "https://api.geoapify.com/v1/geocode/search?text={0}&filter=countrycode:{1}&apiKey=440a320e3a31460eb65e2b2d5bbb53dd"; // 0 - city, 1 country code
 
         readonly IGeolocation geolocation = Geolocation.Default;
         readonly HttpClient httpClient = new();
@@ -61,13 +62,25 @@ namespace WeatherFlex.Services
             CultureInfo cultureInfo = CultureInfo.GetCultureInfo("en-US");
 
             var link = string.Format(
-                GEOLOCATION_API_LINK, 
+                REVERSE_GEOLOCATION_API_LINK, 
                 ((float)latitude).ToString(cultureInfo), 
                 ((float)longitude).ToString(cultureInfo));
-
+            
             LocationFeatures locationFeatures = await httpClient.GetFromJsonAsync<LocationFeatures>(link);
 
             return locationFeatures.Features[0].LocationProperties;
+        }
+
+        public async Task<LocationData> GetLocationDataAsync(string city, string countryCode)
+        {
+            var link = string.Format(
+                GEOLOCATION_API_LINK,
+                city,
+                countryCode);
+
+            LocationDataWrapper locationWrapper = await httpClient.GetFromJsonAsync<LocationDataWrapper>(link);
+
+            return locationWrapper.Features.Count != 0 ? locationWrapper.Features[0].LocationData : null;
         }
     }
 }
