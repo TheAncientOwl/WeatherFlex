@@ -5,9 +5,7 @@ namespace WeatherFlex.Model
     [Table("settings")]
     public class Settings
     {
-        [Column("id")]
-        [PrimaryKey]
-        [AutoIncrement]
+        [Column("id"), PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
 

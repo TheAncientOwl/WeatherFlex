@@ -5,7 +5,7 @@ namespace WeatherFlex.Database
 {
     public class SettingsDao
     {
-        static readonly Settings DEFAULT_SETTINGS = new Settings()
+        static readonly Settings DEFAULT_SETTINGS = new()
         {
             PreffersCelsius = true,
         };
@@ -37,7 +37,7 @@ namespace WeatherFlex.Database
 
             List<Settings> list = await connection.QueryAsync<Settings>("SELECT * FROM settings");
 
-            if (list.Count() == 0)
+            if (list.Count == 0)
             {
                 await Insert(DEFAULT_SETTINGS);
 
