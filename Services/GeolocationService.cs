@@ -62,10 +62,10 @@ namespace WeatherFlex.Services
             CultureInfo cultureInfo = CultureInfo.GetCultureInfo("en-US");
 
             var link = string.Format(
-                REVERSE_GEOLOCATION_API_LINK, 
-                ((float)latitude).ToString(cultureInfo), 
+                REVERSE_GEOLOCATION_API_LINK,
+                ((float)latitude).ToString(cultureInfo),
                 ((float)longitude).ToString(cultureInfo));
-            
+
             LocationFeatures locationFeatures = await httpClient.GetFromJsonAsync<LocationFeatures>(link);
 
             return locationFeatures.Features[0].LocationProperties;
@@ -77,10 +77,16 @@ namespace WeatherFlex.Services
                 GEOLOCATION_API_LINK,
                 city,
                 countryCode);
+            try
+            {
+                LocationDataWrapper locationWrapper = await httpClient.GetFromJsonAsync<LocationDataWrapper>(link);
 
-            LocationDataWrapper locationWrapper = await httpClient.GetFromJsonAsync<LocationDataWrapper>(link);
-
-            return locationWrapper.Features.Count != 0 ? locationWrapper.Features[0].LocationData : null;
+                return locationWrapper.Features.Count != 0 ? locationWrapper.Features[0].LocationData : null;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

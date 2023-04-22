@@ -7,7 +7,7 @@
              Title="FavoritesPage">
 
     <ScrollView>
-        <VerticalStackLayout Spacing="10" Padding="15">
+        <VerticalStackLayout Spacing="10" Padding="15" HorizontalOptions="Center">
             <VerticalStackLayout WidthRequest="350" Spacing="15">
                 <Label Text="Enter city:" FontAttributes="Bold" TextDecorations="Underline"/>
                 <Entry Placeholder="Type your city here" x:Name="entryCity"/>
@@ -18,7 +18,7 @@
                 <Entry Placeholder="Type your postal code here" x:Name="entryCountry"/>
             </VerticalStackLayout>
 
-            <!--<Button Text="Add" WidthRequest="100" Clicked="OnAddButtonClicked" />-->
+            <Button Text="Add" WidthRequest="100" Clicked="AddFavorite_Button_Clicked" />
 
             <ListView x:Name="listViewFavorite">
                 <ListView.ItemTemplate>
