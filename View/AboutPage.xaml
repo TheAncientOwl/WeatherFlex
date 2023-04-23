@@ -25,7 +25,7 @@
             </Border>
 
             <Border
-                MaximumWidthRequest="1100"
+                MaximumWidthRequest="950"
                 Stroke="Orange"
                 StrokeThickness="2"
                 StrokeShape="RoundRectangle 20"
