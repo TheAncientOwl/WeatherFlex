@@ -1,29 +1,26 @@
-﻿using System;
-using System.Globalization;
-using System.Net.Http;
+﻿using System.Globalization;
 using System.Net.Http.Json;
-using System.Threading.Tasks;
 using WeatherFlex.Model;
 
 namespace WeatherFlex.Services
 {
-    public class WeatherServiceForecast
+    public class WeatherForecastService
     {
         private class QueryParameters
         {
             public static readonly string Location = "&latitude={0}&longitude={1}";
             public static readonly string Daily = "&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max";
             public static readonly string ForecastDays = "&forecast_days=14";
-            public static readonly string StartDate = "&start_date={0}";
-            public static readonly string EndDate = "&end_date={0}";
-            public static readonly string TimeZone = "&timezone={0}";
+            public static readonly string StartDate = "&start_date={2}";
+            public static readonly string EndDate = "&end_date={3}";
+            public static readonly string TimeZone = "&timezone={4}";
         }
 
         private static readonly string API_LINK = "https://api.open-meteo.com/v1/forecast?" + QueryParameters.Location + QueryParameters.Daily + QueryParameters.ForecastDays + QueryParameters.StartDate + QueryParameters.EndDate + QueryParameters.TimeZone;
 
         private readonly HttpClient httpClient;
 
-        public WeatherServiceForecast()
+        public WeatherForecastService()
         {
             httpClient = new HttpClient();
         }
