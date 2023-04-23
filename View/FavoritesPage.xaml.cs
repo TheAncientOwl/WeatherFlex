@@ -1,3 +1,4 @@
+using System.Text;
 using WeatherFlex.Database;
 using WeatherFlex.Model;
 using WeatherFlex.Services;
@@ -50,5 +51,15 @@ public partial class FavoritesPage : ContentPage
         }
     }
 
-    public static string Capitalize(string str) => char.ToUpper(str[0]) + str.Substring(1);
+    public static string Capitalize(string str)
+    {
+        StringBuilder sb = new();
+
+        var words = str.Split(" ").ToList();
+        words.ForEach(str => sb.Append(CapitalizeOne(str)).Append(" "));
+
+        return sb.ToString().TrimEnd();
+    }
+
+    static string CapitalizeOne(string str) => char.ToUpper(str[0]) + str.Substring(1);
 }
