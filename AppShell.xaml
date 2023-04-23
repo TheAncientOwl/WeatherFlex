@@ -16,6 +16,10 @@
         ContentTemplate="{DataTemplate view:SearchPage}"
         Route="SearchPage" />
     <ShellContent
+        Title="Favorites"
+        ContentTemplate="{DataTemplate view:FavoritesCarousel}"
+        Route="FavoritesCarousel" />
+    <ShellContent
         Title="Settings"
         ContentTemplate="{DataTemplate view:SettingsPage}"
         Route="SettingsPage" />
@@ -23,4 +27,5 @@
         Title="About us"
         ContentTemplate="{DataTemplate view:AboutPage}"
         Route="AboutPage" />
+    
 </Shell>
