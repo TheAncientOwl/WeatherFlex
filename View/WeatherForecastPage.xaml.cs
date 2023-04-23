@@ -1,3 +1,5 @@
+using WeatherFlex.Services;
+using WeatherFlex.View.Feedback;
 using WeatherFlex.ViewModel;
 
 namespace WeatherFlex.View;
@@ -8,7 +10,20 @@ public partial class WeatherForecastPage : ContentPage
     public WeatherForecastPage()
     {
         InitializeComponent();
+    }
 
-        BindingContext = new WeatherForecastViewModel();
+    protected override async void OnAppearing()
+    {
+        var contentBackup = Content;
+        Content = new InfoView("Loading data...");
+
+        var viewModel = new WeatherForecastViewModel();
+
+        var userLocation = await new GeolocationService().GetLocationAsync();
+
+        await viewModel.FetchWeatherForecast(userLocation.Latitude, userLocation.Longitude, DateTime.Today.AddDays(-30), DateTime.Now);
+
+        Content = contentBackup;
+        BindingContext = viewModel;
     }
 }
