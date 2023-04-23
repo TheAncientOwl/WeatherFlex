@@ -1,5 +1,5 @@
 ﻿using WeatherFlex.Model;
-﻿using WeatherFlex.Data;
+﻿using WeatherFlex.DataCache;
 using WeatherFlex.Model.Weather;
 using WeatherFlex.Services;
 
@@ -22,7 +22,7 @@ namespace WeatherFlex.ViewModels
 
         public async Task GetWeatherAsync(double latitude, double longitude)
         {
-            WeatherAPI = await WeatherData.Get(latitude, longitude);
+            WeatherAPI = await WeatherDataCache.Get(latitude, longitude);
         }
 
         public List<Temperature> GetHourlyTemperature(Settings userSettings)
