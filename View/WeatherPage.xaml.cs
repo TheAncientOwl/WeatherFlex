@@ -1,3 +1,4 @@
+using WeatherFlex.Database;
 using WeatherFlex.View.Feedback;
 using WeatherFlex.ViewModels;
 
@@ -34,6 +35,8 @@ public partial class WeatherPage : ContentPage
 		WeatherViewModel weatherViewModel = new();
 		await weatherViewModel.GetWeatherAsync(latitude, longitude);
 
-		Content = new WeatherView(weatherViewModel, window);
+		SettingsDao settingsDao = new();
+		var userSettings = await settingsDao.Get();
+		await settingsDao.CloseAsync();
     }
 }

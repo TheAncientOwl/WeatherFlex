@@ -1,4 +1,3 @@
-using System.Collections.ObjectModel;
 using WeatherFlex.Model;
 using WeatherFlex.Services;
 
@@ -6,7 +5,6 @@ namespace WeatherFlex.View;
 
 public partial class SearchPage : ContentPage
 {
-
     public SearchPage()
     {
         InitializeComponent();
@@ -19,7 +17,7 @@ public partial class SearchPage : ContentPage
 
         LocationData location = await new GeolocationService().GetLocationDataAsync(city, country);
 
-        if(location != null)
+        if (location != null)
         {
             await Navigation.PushAsync(new WeatherPage("Forecast in " + city + ", " + country + " is :", location.Latitude, location.Longitude, Window));
         }
