@@ -14,11 +14,19 @@ public partial class FavoritesPage : ContentPage
     protected override async void OnAppearing()
     {
         FavLocationsDao favLocationsDao = new();
-
         listViewFavorite.ItemsSource = await favLocationsDao.Get();
-
         await favLocationsDao.CloseAsync();
+
+        FavLocationsDao.OnLocationsUpdated += HandleLocationsUpdate;
     }
+
+    protected override void OnDisappearing()
+    {
+        FavLocationsDao.OnLocationsUpdated -= HandleLocationsUpdate;
+    }
+
+    void HandleLocationsUpdate(List<FavLocation> locations) =>
+        listViewFavorite.ItemsSource = locations;
 
     private async void AddFavorite_Button_Clicked(object sender, EventArgs e)
     {
@@ -37,8 +45,6 @@ public partial class FavoritesPage : ContentPage
                 Latitude = location.Latitude,
                 Longitude = location.Longitude
             });
-
-            listViewFavorite.ItemsSource = await favLocationsDao.Get();
 
             await favLocationsDao.CloseAsync();
         }
