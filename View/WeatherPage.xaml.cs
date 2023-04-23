@@ -7,6 +7,13 @@ public partial class WeatherPage : ContentPage
 {
 	readonly double latitude;
 	readonly double longitude;
+	readonly Window window;
+
+	public WeatherPage(string title, double latitude, double longitude, Window window) 
+		: this(title, latitude, longitude)
+	{
+		this.window = window;
+	}
 
 	public WeatherPage(string title, double latitude, double longitude)
 	{
@@ -16,6 +23,8 @@ public partial class WeatherPage : ContentPage
 		this.longitude = longitude;
 
 		Title = title;
+
+		window = Window;
 	}
 
     protected override async void OnAppearing()
@@ -25,6 +34,6 @@ public partial class WeatherPage : ContentPage
 		WeatherViewModel weatherViewModel = new();
 		await weatherViewModel.GetWeatherAsync(latitude, longitude);
 
-		Content = new WeatherView(weatherViewModel, Window);
+		Content = new WeatherView(weatherViewModel, window);
     }
 }

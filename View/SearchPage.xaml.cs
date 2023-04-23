@@ -10,7 +10,6 @@ public partial class SearchPage : ContentPage
     public SearchPage()
     {
         InitializeComponent();
-
     }
 
     private async void OnSearchButtonClicked(object sender, EventArgs e)
@@ -22,9 +21,7 @@ public partial class SearchPage : ContentPage
 
         if(location != null)
         {
-            await Navigation.PushAsync(new WeatherPage("Forecast in " + city + ", " + country + " is :", location.Latitude, location.Longitude));
+            await Navigation.PushAsync(new WeatherPage("Forecast in " + city + ", " + country + " is :", location.Latitude, location.Longitude, Window));
         }
-      
     }
-
 }
