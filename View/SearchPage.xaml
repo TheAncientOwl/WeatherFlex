@@ -30,7 +30,7 @@
 
         <VerticalStackLayout WidthRequest="350" Spacing="15">
             <Label Text="Enter country code:" FontAttributes="Bold" TextDecorations="Underline"/>
-            <Entry Placeholder="Type your postal code here" x:Name="entryCountry"/>
+            <Entry Placeholder="Type your country code here" x:Name="entryCountry"/>
         </VerticalStackLayout>
 
         <Button Text="Search" WidthRequest="100" Clicked="OnSearchButtonClicked" />
