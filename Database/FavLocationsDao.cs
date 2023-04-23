@@ -9,6 +9,8 @@ namespace WeatherFlex.Database
 
         SQLiteAsyncConnection connection;
 
+        public static Action<List<FavLocation>> OnLocationsUpdated { get; set; }
+
         public async Task InitDatabase()
         {
             if (connection == null)
@@ -25,7 +27,11 @@ namespace WeatherFlex.Database
         {
             await InitDatabase();
 
-            return await connection.InsertAsync(favLocation);
+            int result = await connection.InsertAsync(favLocation);
+
+            await HandleLocationsUpdate();
+
+            return result;
         }
 
         public async Task<List<FavLocation>> Get()
@@ -48,7 +54,13 @@ namespace WeatherFlex.Database
 
         public async Task<int> Delete(FavLocation favLocation)
         {
-            return await connection.ExecuteAsync("DELETE FROM fav_locations WHERE id = " + favLocation.Id);
+            await InitDatabase();
+
+            int result = await connection.ExecuteAsync("DELETE FROM fav_locations WHERE id = " + favLocation.Id);
+
+            await HandleLocationsUpdate();
+
+            return result;
         }
 
         public async Task<int> Update(FavLocation favLocation)
@@ -57,12 +69,26 @@ namespace WeatherFlex.Database
 
             await Delete(favLocation);
 
-            return await Insert(favLocation);
+            int result = await Insert(favLocation);
+
+            await HandleLocationsUpdate();
+
+            return result;
         }
 
         public async Task CloseAsync()
         {
             await connection.CloseAsync();
+        }
+
+        async Task HandleLocationsUpdate()
+        {
+            if (OnLocationsUpdated != null)
+            {
+                List<FavLocation> newLocations = await Get();
+
+                OnLocationsUpdated(newLocations);
+            }
         }
     }
 }
