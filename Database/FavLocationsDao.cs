@@ -27,6 +27,17 @@ namespace WeatherFlex.Database
         {
             await InitDatabase();
 
+            var locations = await Get();
+            foreach (var location in locations)
+            {
+                if (location.City == favLocation.City && location.CountryCode == favLocation.CountryCode)
+                {
+                    await Shell.Current.DisplayAlert("Location already added", "Selected location already exists in favorites", "OK");
+
+                    return -1;
+                }
+            }
+
             int result = await connection.InsertAsync(favLocation);
 
             await HandleLocationsUpdate();
