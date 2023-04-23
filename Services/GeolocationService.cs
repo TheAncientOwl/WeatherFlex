@@ -75,8 +75,8 @@ namespace WeatherFlex.Services
         {
             var link = string.Format(
                 GEOLOCATION_API_LINK,
-                city,
-                countryCode);
+                city.ToLower(),
+                countryCode.ToLower());
             try
             {
                 LocationDataWrapper locationWrapper = await httpClient.GetFromJsonAsync<LocationDataWrapper>(link);
