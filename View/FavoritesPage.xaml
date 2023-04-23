@@ -7,59 +7,65 @@
              Title="FavoritesPage">
 
     <ScrollView>
-        <VerticalStackLayout Spacing="10" Padding="15" HorizontalOptions="Center">
-            <VerticalStackLayout WidthRequest="350" Spacing="15">
-                <Label Text="Enter city:" FontAttributes="Bold" TextDecorations="Underline"/>
-                <Entry Placeholder="Type your city here" x:Name="entryCity"/>
+        <VerticalStackLayout Padding="20,20,20,20" Spacing="20" HorizontalOptions="Center">
+            <VerticalStackLayout Spacing="20">
+                <VerticalStackLayout WidthRequest="350" Spacing="10">
+                    <Label Text="Enter city:" FontAttributes="Bold"/>
+                    <Entry Placeholder="Type your city here" x:Name="entryCity"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout WidthRequest="350" Spacing="10">
+                    <Label Text="Enter country code:" FontAttributes="Bold"/>
+                    <Entry Placeholder="Type your country code here" x:Name="entryCountry"/>
+                </VerticalStackLayout>
+
+                <Button Text="Add" WidthRequest="100" Clicked="AddFavorite_Button_Clicked" />
             </VerticalStackLayout>
 
-            <VerticalStackLayout WidthRequest="350" Spacing="15">
-                <Label Text="Enter country code:" FontAttributes="Bold" TextDecorations="Underline"/>
-                <Entry Placeholder="Type your postal code here" x:Name="entryCountry"/>
-            </VerticalStackLayout>
-
-            <Button Text="Add" WidthRequest="100" Clicked="AddFavorite_Button_Clicked" />
-
-            <ListView x:Name="listViewFavorite">
+            <ListView x:Name="listViewFavorite" 
+                      HorizontalScrollBarVisibility="Always" 
+                      VerticalScrollBarVisibility="Never">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <HorizontalStackLayout Margin="20">
-                                <HorizontalStackLayout Spacing="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                    <Image
+                            <HorizontalStackLayout Spacing="10"
+                                                   Padding="5,5,5,15"
+                                                   HorizontalOptions="CenterAndExpand" 
+                                                   VerticalOptions="CenterAndExpand">
+                                <Image
                                     Source="{Binding FlagUrl}"
                                     HeightRequest="30"
                                     WidthRequest="30"
                                     HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
                                     />
 
-                                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                        <Label Text="{Binding City}"
-                                           FontSize="18"/>
-                                        <Label Text=", "
-                                           Margin="0,0,5,0"
-                                           FontSize="16"/>
-                                        <Label Text="{Binding CountryCode}"
-                                           FontSize="16"/>
-                                    </HorizontalStackLayout>
-
-                                    <HorizontalStackLayout Spacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                        <HorizontalStackLayout Spacing="5">
-                                            <Label Text="lat: " FontSize="16"/>
-                                            <Label Text="{Binding Latitude}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                                        </HorizontalStackLayout>
-
-                                        <HorizontalStackLayout Spacing="5">
-                                            <Label Text="long: " FontSize="16"/>
-                                            <Label Text="{Binding Longitude}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                                        </HorizontalStackLayout>
-                                    </HorizontalStackLayout>
-
-                                    <Button Text="Delete"
-                                        Command="{Binding DeleteAsync}"
-                                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
-                                        />
+                                <HorizontalStackLayout                                                       
+                                                       HorizontalOptions="CenterAndExpand" 
+                                                       VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding City}"/>
+                                    <Label Text=", " Margin="0,0,5,0"/>
+                                    <Label Text="{Binding CountryCode}"/>
                                 </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="10"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       VerticalOptions="CenterAndExpand">
+                                    <HorizontalStackLayout>
+                                        <Label Text="lat: " Margin="0,0,3,0"/>
+                                        <Label Text="{Binding Latitude}"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout>
+                                        <Label Text="long: " Margin="0,0,3,0"/>
+                                        <Label Text="{Binding Longitude}"/>
+                                    </HorizontalStackLayout>
+                                </HorizontalStackLayout>
+
+                                <Button Text="Delete"
+                                        Command="{Binding DeleteAsync}"
+                                        HorizontalOptions="EndAndExpand" 
+                                        VerticalOptions="CenterAndExpand"
+                                        />
                             </HorizontalStackLayout>
                         </ViewCell>
                     </DataTemplate>
