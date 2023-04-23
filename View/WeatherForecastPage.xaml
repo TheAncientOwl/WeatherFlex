@@ -7,24 +7,30 @@
              x:DataType="viewModel:WeatherForecastViewModel"
              Title="WeatherForecastPage">
 
-    <StackLayout BindableLayout.ItemsSource="{Binding WeatherForecast.DailyWeatherUnit}">
-        <BindableLayout.ItemTemplate>
-            <DataTemplate>
-                <Grid Padding="10" x:DataType="model:DailyUnits">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Label Text="{Binding Time}" />
-                    <Label Text="{Binding Temperature2mMax}" Grid.Column="1" />
-                    <Label Text="{Binding Temperature2mMin}" Grid.Column="2" />
-                    <Label Text="{Binding PrecipitationProbabilityMax}" Grid.Column="3" />
-                </Grid>
-            </DataTemplate>
-        </BindableLayout.ItemTemplate>
-    </StackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <Label Text="{Binding WeatherForecast.Latitude}"/>
+            
+            <Label Text="{Binding WeatherForecast.Longitude}"/>
 
-
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding WeatherForecast.DailyWeatherUnit}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10" x:DataType="model:DailyUnits">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Time}" />
+                            <Label Text="{Binding Temperature2mMax}" Grid.Column="1" />
+                            <Label Text="{Binding Temperature2mMin}" Grid.Column="2" />
+                            <Label Text="{Binding PrecipitationProbabilityMax}" Grid.Column="3" />
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
