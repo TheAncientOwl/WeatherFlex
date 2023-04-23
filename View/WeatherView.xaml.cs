@@ -18,7 +18,7 @@ public partial class WeatherView : ContentView
             WeatherUnits = new WeatherUnits()
             {
                 Time = weatherApi.WeatherUnits.Time,
-                Units = "°F"
+                Units = "Â°F"
             },
             CurrentWeather = new Weather()
             {
