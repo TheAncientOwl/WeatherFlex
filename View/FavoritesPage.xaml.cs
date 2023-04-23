@@ -51,4 +51,5 @@ public partial class FavoritesPage : ContentPage
     }
 
     public static string Capitalize(string str) => char.ToUpper(str[0]) + str.Substring(1);
+
 }
