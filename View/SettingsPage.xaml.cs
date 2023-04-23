@@ -34,4 +34,12 @@ public partial class SettingsPage : ContentPage
     {
         await viewModel.TogglePreffersCelsius();
     }
+
+    private async void SaveDelay_Button_Clicked(object sender, EventArgs e)
+    {
+        if (int.TryParse(fetchWeatherDelay.Text, out int newDelay))
+        {
+            await viewModel.ChangeFetchWeatherDelay(newDelay);
+        }
+    }
 }
