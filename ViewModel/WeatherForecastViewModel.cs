@@ -14,9 +14,9 @@ namespace WeatherFlex.ViewModel
         //    DailyWeatherUnit = new List<DailyUnits>();
         //}
 
-        public async Task FetchWeatherForecast(double latitude, double longitude, DateTime startDate, DateTime endDate)
+        public async Task FetchWeatherForecast(double latitude, double longitude)
         {
-            WeatherForecast = await new WeatherForecastService().FetchWeather(latitude, longitude, startDate, endDate, "GMT");
+            WeatherForecast = await new WeatherForecastService().FetchWeather(latitude, longitude);
         }
     }
 }

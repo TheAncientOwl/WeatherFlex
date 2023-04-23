@@ -50,10 +50,10 @@ namespace WeatherFlex.Model
         public List<int> WeatherCode { get; set; }
 
         [JsonProperty("temperature_2m_max")]
-        public List<double> Temperature2mMax { get; set; }
+        public List<double> Temperature2mMaxList { get; set; }
 
         [JsonProperty("temperature_2m_min")]
-        public List<double> Temperature2mMin { get; set; }
+        public List<double> Temperature2mMinList { get; set; }
 
         [JsonProperty("sunrise")]
         public List<string> Sunrise { get; set; }
@@ -62,6 +62,6 @@ namespace WeatherFlex.Model
         public List<string> Sunset { get; set; }
 
         [JsonProperty("precipitation_probability_max")]
-        public List<int> PrecipitationProbabilityMax { get; set; }
+        public List<int> PrecipitationProbabilityMaxList { get; set; }
     }
 }

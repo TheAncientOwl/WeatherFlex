@@ -21,7 +21,7 @@ public partial class WeatherForecastPage : ContentPage
 
         var userLocation = await new GeolocationService().GetLocationAsync();
 
-        await viewModel.FetchWeatherForecast(userLocation.Latitude, userLocation.Longitude, DateTime.Today.AddDays(-30), DateTime.Now);
+        await viewModel.FetchWeatherForecast(userLocation.Latitude, userLocation.Longitude);
 
         Content = contentBackup;
         BindingContext = viewModel;
