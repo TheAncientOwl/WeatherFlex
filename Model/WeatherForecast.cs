@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace WeatherFlex.Model
 {
@@ -70,5 +64,4 @@ namespace WeatherFlex.Model
         [JsonProperty("precipitation_probability_max")]
         public List<int> PrecipitationProbabilityMax { get; set; }
     }
-
 }

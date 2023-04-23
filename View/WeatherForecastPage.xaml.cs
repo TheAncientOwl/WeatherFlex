@@ -8,7 +8,7 @@ public partial class WeatherForecastPage : ContentPage
     public WeatherForecastPage()
     {
         InitializeComponent();
-        this.BindingContext = new WeatherForecastModel();
 
+        BindingContext = new WeatherForecastViewModel();
     }
 }

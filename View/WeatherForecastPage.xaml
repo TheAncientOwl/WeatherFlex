@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModel="clr-namespace:WeatherFlex.ViewModel"
              x:Class="WeatherFlex.View.WeatherForecastPage"
-             x:DataType="viewModel:WeatherForecastModel"
+             x:DataType="viewModel:WeatherForecastViewModel"
              Title="WeatherForecastPage">
 
     <StackLayout BindableLayout.ItemsSource="{Binding WeatherForecast.DailyWeatherUnit}">

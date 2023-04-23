@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using WeatherFlex.Model;
 using WeatherFlex.Services;
 
 namespace WeatherFlex.ViewModel
 {
-    public class WeatherForecastModel : INotifyPropertyChanged
+    public class WeatherForecastViewModel : INotifyPropertyChanged
     {
-        private WeatherForecast weatherForecast;
-        private double latitude;
-        private double longitude;
-        private DateTime startDate;
-        private DateTime endDate;
+        WeatherForecast weatherForecast;
+        double latitude;
+        double longitude;
+        DateTime startDate;
+        DateTime endDate;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -33,12 +28,12 @@ namespace WeatherFlex.ViewModel
         public List<DailyUnits> DailyWeatherUnit { get; set; }
 
 
-        public WeatherForecastModel()
+        public WeatherForecastViewModel()
         {
             DailyWeatherUnit = new List<DailyUnits>();
             FetchWeatherForecast();
         }
-        public WeatherForecastModel(double latitude, double longitude, DateTime startDate, DateTime endDate)
+        public WeatherForecastViewModel(double latitude, double longitude, DateTime startDate, DateTime endDate)
         {
             this.latitude = latitude;
             this.longitude = longitude;
