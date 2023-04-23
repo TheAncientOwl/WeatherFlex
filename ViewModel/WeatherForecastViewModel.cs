@@ -18,5 +18,6 @@ namespace WeatherFlex.ViewModel
         {
             WeatherForecast = await new WeatherForecastService().FetchWeather(latitude, longitude);
         }
+
     }
 }

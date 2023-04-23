@@ -1,9 +1,16 @@
 ﻿using System.Text.Json.Serialization;
+using WeatherFlex.Model.Weather;
 
 namespace WeatherFlex.Model
 {
     public class WeatherForecast
     {
+        [JsonIgnore]
+        public LocationProperties LocationProperties { get; set; }
+        [JsonIgnore]
+        public string WeatherInterpretation { get; set; }
+        [JsonIgnore]
+        public Color BackgroundColor { get; private set; }
         [JsonPropertyName("latitude")]
         public double Latitude { get; set; }
 
@@ -21,6 +28,8 @@ namespace WeatherFlex.Model
 
         [JsonPropertyName("daily")]
         public ForecastDailyValues DailyValues { get; set; }
+
+        public DailyForecast DailyForecast { get; set; }
     }
 
     public class ForecastDailyUnits
@@ -37,6 +46,7 @@ namespace WeatherFlex.Model
 
     public class ForecastDailyValues
     {
+        
         [JsonPropertyName("time")]
         public List<string> Time { get; set; }
 
