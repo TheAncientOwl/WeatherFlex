@@ -55,8 +55,8 @@
                                         </HorizontalStackLayout>
                                     </HorizontalStackLayout>
 
-                                        <!--Clicked="Button_Clicked_Favorites"-->
                                     <Button Text="Delete"
+                                        Command="{Binding DeleteAsync}"
                                         HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
                                         />
                                 </HorizontalStackLayout>

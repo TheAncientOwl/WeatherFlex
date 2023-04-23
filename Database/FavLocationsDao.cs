@@ -48,6 +48,8 @@ namespace WeatherFlex.Database
 
         public async Task<int> Delete(FavLocation favLocation)
         {
+            await InitDatabase();
+
             return await connection.ExecuteAsync("DELETE FROM fav_locations WHERE id = " + favLocation.Id);
         }
 
