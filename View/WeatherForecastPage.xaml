@@ -106,20 +106,20 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <!--<Label Text="WeatherForecast.DailyValues.PrecipitationProbabilityMaxList"/>
+            <Label Text="WeatherForecast.DailyValues.PrecipitationProbabilityMaxList"/>
             <ListView ItemsSource="{Binding WeatherForecast.DailyValues.PrecipitationProbability}">
-                --><!-- Define DataTemplate for each item in the list --><!--
+                 <!--Define DataTemplate for each item in the list--> 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            --><!-- Define layout for each item using Labels --><!--
+                             <!--Define layout for each item using Labels--> 
                             <StackLayout>
                                 <Label Text="{Binding}" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>-->
+            </ListView>
 
         </VerticalStackLayout>
     </ScrollView>
