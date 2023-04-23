@@ -19,7 +19,7 @@ public partial class SearchPage : ContentPage
 
         if (location != null)
         {
-            await Navigation.PushAsync(new WeatherPage("Forecast in " + city + ", " + country + " is :", location.Latitude, location.Longitude, Window));
+            await Navigation.PushAsync(new WeatherPage("Weather in" + city + ", " + country, location.Latitude, location.Longitude, Window));
         }
     }
 }

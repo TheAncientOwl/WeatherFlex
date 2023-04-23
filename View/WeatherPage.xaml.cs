@@ -38,5 +38,7 @@ public partial class WeatherPage : ContentPage
 		SettingsDao settingsDao = new();
 		var userSettings = await settingsDao.Get();
 		await settingsDao.CloseAsync();
+
+		Content = new WeatherView(weatherViewModel, window, userSettings);
     }
 }
