@@ -32,8 +32,8 @@ public partial class FavoritesPage : ContentPage
             FavLocationsDao favLocationsDao = new();
             await favLocationsDao.Insert(new FavLocation()
             {
-                City = city,
-                CountryCode = country,
+                City = Capitalize(city),
+                CountryCode = Capitalize(country),
                 Latitude = location.Latitude,
                 Longitude = location.Longitude
             });
@@ -43,4 +43,6 @@ public partial class FavoritesPage : ContentPage
             await favLocationsDao.CloseAsync();
         }
     }
+
+    static string Capitalize(string str) => char.ToUpper(str[0]) + str.Substring(1);
 }
