@@ -81,10 +81,18 @@ namespace WeatherFlex.Services
             {
                 LocationDataWrapper locationWrapper = await httpClient.GetFromJsonAsync<LocationDataWrapper>(link);
 
-                return locationWrapper.Features.Count != 0 ? locationWrapper.Features[0].LocationData : null;
+                if (locationWrapper.Features.Count == 0)
+                {
+                    await Shell.Current.DisplayAlert("Unknown Location", "Provided location is not valid", "OK");
+                    return null;
+                }
+
+                return locationWrapper.Features[0].LocationData;
             }
             catch
             {
+                await Shell.Current.DisplayAlert("Unknown Location", "Provided location is not valid", "OK");
+
                 return null;
             }
         }
