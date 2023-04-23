@@ -27,7 +27,7 @@ namespace WeatherFlex.Database
         {
             await InitDatabase();
 
-            var locations = await Get();
+            var locations = await connection.QueryAsync<FavLocation>("SELECT * FROM fav_locations");
             foreach (var location in locations)
             {
                 if (location.City == favLocation.City && location.CountryCode == favLocation.CountryCode)
