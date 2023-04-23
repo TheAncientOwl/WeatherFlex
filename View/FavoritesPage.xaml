@@ -22,11 +22,14 @@
                 <Button Text="Add" WidthRequest="100" Clicked="AddFavorite_Button_Clicked" />
             </VerticalStackLayout>
 
-            <ListView x:Name="listViewFavorite">
+            <ListView x:Name="listViewFavorite" 
+                      HorizontalScrollBarVisibility="Always" 
+                      VerticalScrollBarVisibility="Never">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <HorizontalStackLayout Spacing="10"
+                                                   Padding="5,5,5,15"
                                                    HorizontalOptions="CenterAndExpand" 
                                                    VerticalOptions="CenterAndExpand">
                                 <Image
