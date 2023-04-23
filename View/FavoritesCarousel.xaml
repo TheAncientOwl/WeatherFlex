@@ -7,13 +7,13 @@
              x:DataType="viewModel:CarouselViewModel"
              Title="FavoritesCarousel">
 
-    <CarouselView ItemsSource="{Binding FavLocations}"
-              PeekAreaInsets="100">
-        <CarouselView.ItemsLayout>
-            <LinearItemsLayout Orientation="Horizontal"
-                           SnapPointsType="MandatorySingle"
-                           SnapPointsAlignment="Start" />
-        </CarouselView.ItemsLayout>
-        ...
+    <CarouselView ItemsSource="{Binding FavLocations}">
+        <CarouselView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout x:DataType="model:CarouselContent">
+                    <ContentView Content="{Binding LocationContent}"/>
+                </StackLayout>
+            </DataTemplate>
+        </CarouselView.ItemTemplate>
     </CarouselView>
 </ContentPage>

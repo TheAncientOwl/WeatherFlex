@@ -1,3 +1,5 @@
+using WeatherFlex.ViewModel;
+
 namespace WeatherFlex.View;
 
 public partial class FavoritesCarousel : ContentPage
@@ -6,4 +8,12 @@ public partial class FavoritesCarousel : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    protected override async void OnAppearing()
+    {
+		CarouselViewModel viewModel = new();
+		await viewModel.LoadFavLocationsAsync(Window);
+
+		BindingContext = viewModel;
+    }
 }
