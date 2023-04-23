@@ -44,5 +44,5 @@ public partial class FavoritesPage : ContentPage
         }
     }
 
-    static string Capitalize(string str) => char.ToUpper(str[0]) + str.Substring(1);
+    public static string Capitalize(string str) => char.ToUpper(str[0]) + str.Substring(1);
 }
