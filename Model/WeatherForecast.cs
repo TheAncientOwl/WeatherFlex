@@ -26,7 +26,7 @@ namespace WeatherFlex.Model
         public double Elevation { get; set; }
 
         [JsonProperty("daily_units")]
-        public List <DailyUnits> DailyWeatherUnit { get; set; }
+        public DailyUnits DailyWeatherUnit { get; set; }
 
         [JsonProperty("daily")]
         public WeatherApiDaily Daily { get; set; }
@@ -35,24 +35,43 @@ namespace WeatherFlex.Model
 
     public class DailyUnits
     {
+        [JsonProperty("time")]
         public string Time { get; set; }
-        public double Temperature2mMax { get; set; }
-        public double Temperature2mMin { get; set; }
-        public double PrecipitationProbabilityMax { get; set; }
+
+        [JsonProperty("weathercode")]
+        public string Weathercode { get; set; }
+
+        [JsonProperty("temperature_2m_max")]
+
+        public string Temperature_2m_max { get; set; }
+
+        [JsonProperty("temperature_2m_min")]
+        public string Temperature_2m_min { get; set; }
+
+        [JsonProperty("sunrise")]
+        public string Sunrise { get; set; }
+
+        [JsonProperty("sunset")]
+        public string Sunset { get; set; }
+
+        [JsonProperty("precipitation_probability_max")]
+        public string Precipitation_probability_max { get; set; }
     }
 
     public class WeatherApiDaily
     {
         [JsonProperty("time")]
         public List<string> Time { get; set; }
-
+        
         [JsonProperty("weathercode")]
         public List<int> WeatherCode { get; set; }
 
         [JsonProperty("temperature_2m_max")]
+
         public List<double> Temperature2mMaxList { get; set; }
 
         [JsonProperty("temperature_2m_min")]
+
         public List<double> Temperature2mMinList { get; set; }
 
         [JsonProperty("sunrise")]
@@ -62,6 +81,8 @@ namespace WeatherFlex.Model
         public List<string> Sunset { get; set; }
 
         [JsonProperty("precipitation_probability_max")]
+        
         public List<int> PrecipitationProbabilityMaxList { get; set; }
     }
 }
+
