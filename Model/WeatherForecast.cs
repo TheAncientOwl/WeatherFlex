@@ -1,88 +1,143 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace WeatherFlex.Model
 {
     public class WeatherForecast
     {
-        [JsonProperty("latitude")]
+        [JsonPropertyName("latitude")]
         public double Latitude { get; set; }
 
-        [JsonProperty("longitude")]
+        [JsonPropertyName("longitude")]
         public double Longitude { get; set; }
 
-        [JsonProperty("generationtime_ms")]
-        public double GenerationTimeMs { get; set; }
-
-        [JsonProperty("utc_offset_seconds")]
-        public int UtcOffsetSeconds { get; set; }
-
-        [JsonProperty("timezone")]
+        [JsonPropertyName("timezone")]
         public string Timezone { get; set; }
 
-        [JsonProperty("timezone_abbreviation")]
-        public string TimezoneAbbreviation { get; set; }
-
-        [JsonProperty("elevation")]
+        [JsonPropertyName("elevation")]
         public double Elevation { get; set; }
 
-        [JsonProperty("daily_units")]
-        public DailyUnits DailyWeatherUnit { get; set; }
+        [JsonPropertyName("daily_units")]
+        public ForecastDailyUnits DailyUnits { get; set; }
 
-        [JsonProperty("daily")]
-        public WeatherApiDaily Daily { get; set; }
-
+        [JsonPropertyName("daily")]
+        public ForecastDailyValues DailyValues { get; set; }
     }
 
-    public class DailyUnits
+    public class ForecastDailyUnits
     {
-        [JsonProperty("time")]
-        public string Time { get; set; }
+        [JsonPropertyName("temperature_2m_max")]
+        public string TemperatureMax2m { get; set; }
 
-        [JsonProperty("weathercode")]
-        public string Weathercode { get; set; }
+        [JsonPropertyName("temperature_2m_min")]
+        public string TemperatureMin2m { get; set; }
 
-        [JsonProperty("temperature_2m_max")]
-
-        public string Temperature_2m_max { get; set; }
-
-        [JsonProperty("temperature_2m_min")]
-        public string Temperature_2m_min { get; set; }
-
-        [JsonProperty("sunrise")]
-        public string Sunrise { get; set; }
-
-        [JsonProperty("sunset")]
-        public string Sunset { get; set; }
-
-        [JsonProperty("precipitation_probability_max")]
-        public string Precipitation_probability_max { get; set; }
+        [JsonPropertyName("precipitation_probability_max")]
+        public string PrecipitationProbability { get; set; }
     }
 
-    public class WeatherApiDaily
+    public class ForecastDailyValues
     {
-        [JsonProperty("time")]
+        [JsonPropertyName("time")]
         public List<string> Time { get; set; }
-        
-        [JsonProperty("weathercode")]
-        public List<int> WeatherCode { get; set; }
 
-        [JsonProperty("temperature_2m_max")]
+        [JsonPropertyName("weathercode")]
+        public List<int> Weathercode { get; set; }
 
-        public List<double> Temperature2mMaxList { get; set; }
+        [JsonPropertyName("temperature_2m_max")]
+        public List<double> TemperatureMax2m { get; set; }
 
-        [JsonProperty("temperature_2m_min")]
+        [JsonPropertyName("temperature_2m_min")]
+        public List<double> TemperatureMin2m { get; set; }
 
-        public List<double> Temperature2mMinList { get; set; }
-
-        [JsonProperty("sunrise")]
+        [JsonPropertyName("sunrise")]
         public List<string> Sunrise { get; set; }
 
-        [JsonProperty("sunset")]
+        [JsonPropertyName("sunset")]
         public List<string> Sunset { get; set; }
 
-        [JsonProperty("precipitation_probability_max")]
-        
-        public List<int> PrecipitationProbabilityMaxList { get; set; }
+        //[JsonPropertyName("precipitation_probability_max")]
+        //public List<int> PrecipitationProbability { get; set; }
     }
-}
 
+    //public class WeatherForecast
+    //{
+    //    [JsonProperty("latitude")]
+    //    public double Latitude { get; set; }
+
+    //    [JsonProperty("longitude")]
+    //    public double Longitude { get; set; }
+
+    //    [JsonProperty("generationtime_ms")]
+    //    public double GenerationTimeMs { get; set; }
+
+    //    [JsonProperty("utc_offset_seconds")]
+    //    public int UtcOffsetSeconds { get; set; }
+
+    //    [JsonProperty("timezone")]
+    //    public string Timezone { get; set; }
+
+    //    [JsonProperty("timezone_abbreviation")]
+    //    public string TimezoneAbbreviation { get; set; }
+
+    //    [JsonProperty("elevation")]
+    //    public double Elevation { get; set; }
+
+    //    [JsonProperty("daily_units")]
+    //    public DailyUnits DailyWeatherUnit { get; set; }
+
+    //    [JsonProperty("daily")]
+    //    public WeatherApiDaily Daily { get; set; }
+    //}
+
+    //public class DailyUnits
+    //{
+    //    [JsonProperty("time")]
+    //    public string Time { get; set; }
+
+    //    [JsonProperty("weathercode")]
+    //    public string Weathercode { get; set; }
+
+    //    [JsonProperty("temperature_2m_max")]
+
+    //    public string Temperature_2m_max { get; set; }
+
+    //    [JsonProperty("temperature_2m_min")]
+    //    public string Temperature_2m_min { get; set; }
+
+    //    [JsonProperty("sunrise")]
+    //    public string Sunrise { get; set; }
+
+    //    [JsonProperty("sunset")]
+    //    public string Sunset { get; set; }
+
+    //    [JsonProperty("precipitation_probability_max")]
+    //    public string Precipitation_probability_max { get; set; }
+    //}
+
+    //public class WeatherApiDaily
+    //{
+    //    [JsonProperty("time")]
+    //    public List<string> Time { get; set; }
+
+    //    [JsonProperty("weathercode")]
+    //    public List<int> WeatherCode { get; set; }
+
+    //    [JsonProperty("temperature_2m_max")]
+
+    //    public List<double> Temperature2mMaxList { get; set; }
+
+    //    [JsonProperty("temperature_2m_min")]
+
+    //    public List<double> Temperature2mMinList { get; set; }
+
+    //    [JsonProperty("sunrise")]
+    //    public List<string> Sunrise { get; set; }
+
+    //    [JsonProperty("sunset")]
+    //    public List<string> Sunset { get; set; }
+
+    //    [JsonProperty("precipitation_probability_max")]
+
+    //    public List<int> PrecipitationProbabilityMaxList { get; set; }
+    //}
+}

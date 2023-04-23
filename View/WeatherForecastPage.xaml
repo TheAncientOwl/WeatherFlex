@@ -9,11 +9,14 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="10">
+            <Label Text="latitude"/>
             <Label Text="{Binding WeatherForecast.Latitude}"/>
 
+            <Label Text="longitude"/>
             <Label Text="{Binding WeatherForecast.Longitude}"/>
 
-            <ListView ItemsSource="{Binding WeatherForecast.Daily.Time}">
+            <Label Text="WeatherForecast.DailyValues.Time"/>
+            <ListView ItemsSource="{Binding WeatherForecast.DailyValues.Time}">
                 <!-- Define DataTemplate for each item in the list -->
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -27,8 +30,9 @@
                 </ListView.ItemTemplate>
             </ListView>
 
+            <Label Text="WeatherForecast.DailyValues.WeatherCode"/>
             <!-- Bind ListView to the 'WeatherCode' list property -->
-            <ListView ItemsSource="{Binding WeatherForecast.Daily.WeatherCode}">
+            <ListView ItemsSource="{Binding WeatherForecast.DailyValues.Weathercode}">
                 <!-- Define DataTemplate for each item in the list -->
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -42,7 +46,8 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <ListView ItemsSource="{Binding WeatherForecast.Daily.Temperature2mMaxList}">
+            <Label Text="WeatherForecast.DailyValues.TemperatureMax2m"/>
+            <ListView ItemsSource="{Binding WeatherForecast.DailyValues.TemperatureMax2m}">
                 <!-- Define DataTemplate for each item in the list -->
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -56,8 +61,8 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-
-            <ListView ItemsSource="{Binding WeatherForecast.Daily.Temperature2mMinList}">
+            <Label Text="WeatherForecast.DailyValues.TemperatureMin2m"/>
+            <ListView ItemsSource="{Binding WeatherForecast.DailyValues.TemperatureMin2m}">
                 <!-- Define DataTemplate for each item in the list -->
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -71,8 +76,8 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-
-            <ListView ItemsSource="{Binding WeatherForecast.Daily.Sunrise}">
+            <Label Text="WeatherForecast.DailyValues.Sunrise"/>
+            <ListView ItemsSource="{Binding WeatherForecast.DailyValues.Sunrise}">
                 <!-- Define DataTemplate for each item in the list -->
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -86,7 +91,8 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <ListView ItemsSource="{Binding WeatherForecast.Daily.Sunset}">
+            <Label Text="WeatherForecast.DailyValues.Sunset"/>
+            <ListView ItemsSource="{Binding WeatherForecast.DailyValues.Sunset}">
                 <!-- Define DataTemplate for each item in the list -->
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -100,21 +106,20 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <ListView ItemsSource="{Binding WeatherForecast.Daily.PrecipitationProbabilityMaxList}">
-                <!-- Define DataTemplate for each item in the list -->
+            <!--<Label Text="WeatherForecast.DailyValues.PrecipitationProbabilityMaxList"/>
+            <ListView ItemsSource="{Binding WeatherForecast.DailyValues.PrecipitationProbability}">
+                --><!-- Define DataTemplate for each item in the list --><!--
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <!-- Define layout for each item using Labels -->
+                            --><!-- Define layout for each item using Labels --><!--
                             <StackLayout>
                                 <Label Text="{Binding}" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-
-
+            </ListView>-->
 
         </VerticalStackLayout>
     </ScrollView>
