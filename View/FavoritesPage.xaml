@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:WeatherFlex.Model"
              x:Class="WeatherFlex.View.FavoritesPage"
-             x:DataType="model:FavLocation"
-             Title="FavoritesPage">
-
+             x:DataType="model:FavLocation">
     <ScrollView>
         <VerticalStackLayout Padding="20,20,20,20" Spacing="20" HorizontalOptions="Center">
             <VerticalStackLayout Spacing="20">

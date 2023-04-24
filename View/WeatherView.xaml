@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:WeatherFlex.Model"
              x:Class="WeatherFlex.View.WeatherView"
-             x:DataType="model:Weather.WeatherAPI"
-             >
+             x:DataType="model:Weather.WeatherAPI">
     <ScrollView>
         <VerticalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,20,0,20">
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand" 
