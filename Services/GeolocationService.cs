@@ -73,6 +73,9 @@ namespace WeatherFlex.Services
 
         public async Task<LocationData> GetLocationDataAsync(string city, string countryCode)
         {
+            if (city == null || countryCode == null || city.Length == 0 || countryCode.Length == 0)
+                return null;
+
             var link = string.Format(
                 GEOLOCATION_API_LINK,
                 city.ToLower(),
