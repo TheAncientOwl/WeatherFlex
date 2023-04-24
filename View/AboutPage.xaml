@@ -9,17 +9,16 @@
             VerticalOptions="Center"
             HorizontalOptions="Center"
             >
-
-            <Border WidthRequest="300"
-                    HeightRequest="300"
+            <Border WidthRequest="250"
+                    HeightRequest="250"
                     Stroke="Orange"
-                    StrokeThickness="7"
+                    StrokeThickness="5"
                     BackgroundColor="Black"
                     StrokeShape="RoundRectangle 20">
                 <Image
                     Source="poza_weather_flex.png"
-                    HeightRequest="300"
-                    WidthRequest="300"/>
+                    HeightRequest="250"
+                    WidthRequest="250"/>
             </Border>
 
             <Border
