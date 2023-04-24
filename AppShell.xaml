@@ -5,7 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:WeatherFlex"
     xmlns:view="clr-namespace:WeatherFlex.View"
-    Shell.FlyoutBehavior="Flyout">
+    Shell.FlyoutBehavior="Flyout"
+    Shell.BackgroundColor="DarkOrange"
+    Shell.ForegroundColor="DarkOrange"
+    Shell.TitleColor="AntiqueWhite">
 
     <ShellContent
         Title="Local weather"
