@@ -4,19 +4,19 @@
              xmlns:model="clr-namespace:WeatherFlex.Model"
              x:Class="WeatherFlex.View.FavoritesPage"
              x:DataType="model:FavLocation"
-             Title="FavoritesPage">
-
+             Title="Favorite locations settings"
+             >
     <ScrollView>
         <VerticalStackLayout Padding="20,20,20,20" Spacing="20" HorizontalOptions="Center">
             <VerticalStackLayout Spacing="20">
-                <VerticalStackLayout WidthRequest="350" Spacing="10">
-                    <Label Text="Enter city:" FontAttributes="Bold"/>
-                    <Entry Placeholder="Type your city here" x:Name="entryCity"/>
+                <VerticalStackLayout WidthRequest="350" Spacing="15">
+                    <Label Text="Enter City:" FontAttributes="Bold"/>
+                    <Entry Placeholder="Bucharest" x:Name="entryCity"/>
                 </VerticalStackLayout>
 
-                <VerticalStackLayout WidthRequest="350" Spacing="10">
-                    <Label Text="Enter country code:" FontAttributes="Bold"/>
-                    <Entry Placeholder="Type your country code here" x:Name="entryCountry"/>
+                <VerticalStackLayout WidthRequest="350" Spacing="15">
+                    <Label Text="Enter Country code:" FontAttributes="Bold"/>
+                    <Entry Placeholder="ro" x:Name="entryCountry"/>
                 </VerticalStackLayout>
 
                 <Button Text="Add" WidthRequest="100" Clicked="AddFavorite_Button_Clicked" />

@@ -4,9 +4,7 @@
              xmlns:model="clr-namespace:WeatherFlex.Model"
              xmlns:viewModel="clr-namespace:WeatherFlex.ViewModel"
              x:Class="WeatherFlex.View.FavoritesCarousel"
-             x:DataType="viewModel:CarouselViewModel"
-             Title="Favorite Locations">
-
+             x:DataType="viewModel:CarouselViewModel">
     <CarouselView ItemsSource="{Binding FavLocations}" EmptyView="Loading...">
         <CarouselView.ItemTemplate>
             <DataTemplate>
