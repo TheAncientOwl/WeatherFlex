@@ -12,8 +12,9 @@
             Text="Choose temperature scale" />
 
             <HorizontalStackLayout
-            VerticalOptions="Center" 
-            HorizontalOptions="Center">
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Center"
+                                    Margin="0,10,0,0">
                 <RadioButton Content="Celsius" IsChecked="{Binding PreffersCelsius}">
                     <RadioButton.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Celsius_TapGestureRecognizer_Tapped" />
