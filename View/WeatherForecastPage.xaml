@@ -70,7 +70,7 @@
                 <ScrollView x:Name="hourlyWeatherScrollView" 
                         Orientation="Horizontal" 
                         HorizontalOptions="FillAndExpand">
-                    <CollectionView x:Name="hourlyWeather" 
+                    <CollectionView x:Name="hourlyWeatherForecast" 
                                 x:DataType="model:Weather.Temperature" 
                                 ItemsLayout="HorizontalList">
                         <CollectionView.ItemTemplate>

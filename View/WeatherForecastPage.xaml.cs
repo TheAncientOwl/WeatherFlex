@@ -25,5 +25,7 @@ public partial class WeatherForecastPage : ContentPage
 
         Content = contentBackup;
         BindingContext = viewModel;
+
+        hourlyWeatherForecast.ItemsSource = viewModel.GetForecastValues();
     }
 }
