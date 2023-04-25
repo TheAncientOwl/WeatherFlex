@@ -21,9 +21,8 @@ namespace WeatherFlex.ViewModel
         }
         public async Task GetWeatherAsync(double latitude, double longitude)
         {
-            WeatherForecast = await WeatherData.Get(latitude, longitude);
+            WeatherForecast = await WeatherForecastData.Get(latitude, longitude);
         }
-
 
         public List<ForecastValues> GetForecastValues()
         {
