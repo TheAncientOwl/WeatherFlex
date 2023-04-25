@@ -12,7 +12,7 @@ namespace WeatherFlex.ViewModel
 
         public LocationProperties LocationProperties { get => WeatherForecast.LocationProperties; }
 
-        public WeatherCode weatherCode { get => WeatherForecast.WeatherCode}
+        //public WeatherCode weatherCode { get => WeatherForecast.WeatherCode}
 
         
         public async Task FetchWeatherForecast(double latitude, double longitude)
