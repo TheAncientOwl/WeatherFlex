@@ -66,9 +66,17 @@ namespace WeatherFlex.Services
                 ((float)latitude).ToString(cultureInfo),
                 ((float)longitude).ToString(cultureInfo));
 
-            LocationFeatures locationFeatures = await httpClient.GetFromJsonAsync<LocationFeatures>(link);
+            try
+            {
+                LocationFeatures locationFeatures = await httpClient.GetFromJsonAsync<LocationFeatures>(link);
 
-            return locationFeatures.Features[0].LocationProperties;
+                return locationFeatures.Features[0].LocationProperties;
+            }
+            catch
+            {
+                await Shell.Current.DisplayAlert("Internet error", "Checkk your internet connection", "OK");
+                return null;
+            }
         }
 
         public async Task<LocationData> GetLocationDataAsync(string city, string countryCode)
@@ -96,7 +104,7 @@ namespace WeatherFlex.Services
             {
                 await Shell.Current.DisplayAlert("Unknown Location", "Provided location is not valid", "OK");
 
-                return null;
+                return new LocationData() { Latitude = 100000, Longitude = 100000 };
             }
         }
     }

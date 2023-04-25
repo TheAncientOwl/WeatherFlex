@@ -14,7 +14,10 @@ namespace WeatherFlex.DataCache
         static async Task<WeatherAPI> FetchWeather(double latitude, double longitude)
         {
             WeatherAPI weatherApi = await new WeatherService().FetchWeather(latitude, longitude);
-            weatherApi.LocationProperties = await new GeolocationService().GetLocationPropertiesAsync(latitude, longitude);
+            if (weatherApi != null)
+            {
+                weatherApi.LocationProperties = await new GeolocationService().GetLocationPropertiesAsync(latitude, longitude);
+            }
 
             return weatherApi;
         }

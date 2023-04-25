@@ -27,6 +27,8 @@ namespace WeatherFlex.ViewModels
 
         public List<Temperature> GetHourlyTemperature(Settings userSettings)
         {
+            if (WeatherAPI == null) return null;
+
             DateTime now = DateTime.Now;
 
             List<Temperature> temperatures = new();
