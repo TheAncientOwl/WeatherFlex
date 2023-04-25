@@ -1,10 +1,13 @@
 ﻿using System.Text.Json.Serialization;
+using WeatherFlex.Data;
 using WeatherFlex.Model.Weather;
 
 namespace WeatherFlex.Model
 {
     public class WeatherForecast
     {
+        [JsonIgnore]
+        public WeatherData WeatherData { get; set; }
         [JsonIgnore]
         public LocationProperties LocationProperties { get; set; }
         [JsonIgnore]
@@ -79,4 +82,5 @@ namespace WeatherFlex.Model
         public string Sunset { get; set; }
         public int? PrecipitationProbability { get; set; }
     }
+    
 }

@@ -1,4 +1,5 @@
-﻿using WeatherFlex.Model;
+﻿using WeatherFlex.Data;
+using WeatherFlex.Model;
 using WeatherFlex.Model.Weather;
 using WeatherFlex.Services;
 
@@ -12,6 +13,17 @@ namespace WeatherFlex.ViewModel
         {
             WeatherForecast = await new WeatherForecastService().FetchWeather(latitude, longitude);
         }
+        public async Task GetUserWeatherAsync()
+        {
+            Location userLocation = await new GeolocationService().GetLocationAsync();
+
+            await GetWeatherAsync(userLocation.Latitude, userLocation.Longitude);
+        }
+        public async Task GetWeatherAsync(double latitude, double longitude)
+        {
+            WeatherForecast = await WeatherData.Get(latitude, longitude);
+        }
+
 
         public List<ForecastValues> GetForecastValues()
         {

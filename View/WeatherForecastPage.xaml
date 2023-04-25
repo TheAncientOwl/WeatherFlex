@@ -17,20 +17,6 @@
             </HorizontalStackLayout>
 
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
-                               Margin="0,5,0,0"
-                               Padding="10,0,10,0">
-                <Label FontSize="65" FontAttributes="Bold" Text="{Binding WeatherForecast.DailyValues.TemperatureMax2m}"/>
-                <Label FontSize="35" FontAttributes="Bold" Padding="0,5,0,0" Text="{Binding WeatherForecast.DailyUnits.TemperatureMax2m}"/>
-            </HorizontalStackLayout>
-
-            <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
-                               Margin="0,5,0,0"
-                               Padding="10,0,10,0">
-                <Label FontSize="65" FontAttributes="Bold" Text="{Binding WeatherForecast.DailyValues.TemperatureMin2m}"/>
-                <Label FontSize="35" FontAttributes="Bold" Padding="0,5,0,0" Text="{Binding WeatherForecast.DailyUnits.TemperatureMin2m}"/>
-            </HorizontalStackLayout>
-            
-            <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
                                Margin="0,6,0,0"
                                Padding="10,0,10,0">
                 <Label FontSize="Body" Text="{Binding WeatherForecast.WeatherInterpretation}"/>
@@ -40,8 +26,8 @@
                                VerticalOptions="CenterAndExpand"
                                Margin="0,6,0,0" 
                                Padding="10,0,10,0">
-                <Label FontSize="Caption" Text="Wind speed:" Margin="0,0,5,0"/>
-                <Label FontSize="Body" Text="{Binding WeatherForecast.DailyValues.PrecipitationProbability}" Margin="0,0,2,0"/>
+                <Label FontSize="Caption" Text="" Margin="0,0,5,0"/>
+                <Label FontSize="Body" Text="{Binding WeatherForecast.Timezone}" Margin="0,0,2,0"/>
                 <Label FontSize="Body" Text="%"/>
             </HorizontalStackLayout>
 
