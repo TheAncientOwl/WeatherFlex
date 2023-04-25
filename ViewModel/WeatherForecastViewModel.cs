@@ -1,4 +1,5 @@
-﻿using WeatherFlex.Data;
+﻿using AuthenticationServices;
+using WeatherFlex.Data;
 using WeatherFlex.Model;
 using WeatherFlex.Model.Weather;
 using WeatherFlex.Services;
@@ -9,9 +10,15 @@ namespace WeatherFlex.ViewModel
     {
         public WeatherForecast WeatherForecast { get; set; }
 
+        public LocationProperties LocationProperties { get => WeatherForecast.LocationProperties; }
+
+        public WeatherCode weatherCode { get => WeatherForecast.WeatherCode}
+
+        
         public async Task FetchWeatherForecast(double latitude, double longitude)
         {
             WeatherForecast = await new WeatherForecastService().FetchWeather(latitude, longitude);
+            WeatherForecast.LocationProperties = await new GeolocationService().GetLocationPropertiesAsync(latitude, longitude);
         }
         public async Task GetUserWeatherAsync()
         {

@@ -4,22 +4,22 @@
              xmlns:viewModel="clr-namespace:WeatherFlex.ViewModel"
              xmlns:model="clr-namespace:WeatherFlex.Model"
              x:Class="WeatherFlex.View.WeatherForecastPage"
-             x:DataType="viewModel:WeatherForecastViewModel"
+             x:DataType="model:WeatherForecast"
              Title="WeatherForecastPage">
 
     <ScrollView>
         <VerticalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,20,0,20">
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand" 
                                Padding="10,0,10,0">
-                <Label FontSize="18" Text="{Binding WeatherForecast.LocationProperties.City}"/>
+                <Label FontSize="18" Text="{Binding LocationProperties.City}"/>
                 <Label FontSize="18" Text="," Margin="0,0,5,0"/>
-                <Label FontSize="18" Text="{Binding WeatherForecast.LocationProperties.Country}"/>
+                <Label FontSize="18" Text="{Binding LocationProperties.Country}"/>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
                                Margin="0,6,0,0"
                                Padding="10,0,10,0">
-                <Label FontSize="Body" Text="{Binding WeatherForecast.WeatherInterpretation}"/>
+                <Label FontSize="Body" Text="{Binding WeatherInterpretation}"/>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
@@ -27,7 +27,7 @@
                                Margin="0,6,0,0" 
                                Padding="10,0,10,0">
                 <Label FontSize="Caption" Text="" Margin="0,0,5,0"/>
-                <Label FontSize="Body" Text="{Binding WeatherForecast.Timezone}" Margin="0,0,2,0"/>
+                <Label FontSize="Body" Text="{Binding Timezone}" Margin="0,0,2,0"/>
                 <Label FontSize="Body" Text="%"/>
             </HorizontalStackLayout>
 
@@ -38,17 +38,17 @@
                                Padding="10,0,10,20">
                     <HorizontalStackLayout>
                         <Label FontSize="Body" Text="lat:" Margin="0,0,3,0"/>
-                        <Label FontSize="Body" Text="{Binding WeatherForecast.LocationProperties.Latitude}"/>
+                        <Label FontSize="Body" Text="{Binding LocationProperties.Latitude}"/>
                         <Label FontSize="Body" Text="°,"/>
                     </HorizontalStackLayout>
 
                     <HorizontalStackLayout>
                         <Label FontSize="Body" Text="long: " Margin="0,0,3,0"/>
-                        <Label FontSize="Body" Text="{Binding WeatherForecast.LocationProperties.Longitude}"/>
+                        <Label FontSize="Body" Text="{Binding LocationProperties.Longitude}"/>
                         <Label FontSize="Body" Text="°,"/>
                     </HorizontalStackLayout>
 
-                    <Label FontSize="14" Text="{Binding WeatherForecast.Timezone}"/>
+                    <Label FontSize="14" Text="{Binding Timezone}"/>
                 </HorizontalStackLayout>
             </ScrollView>
 
