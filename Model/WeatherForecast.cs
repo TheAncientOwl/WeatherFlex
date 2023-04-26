@@ -1,14 +1,10 @@
-﻿using System;
-using System.Text.Json.Serialization;
-using WeatherFlex.Data;
+﻿using System.Text.Json.Serialization;
 using WeatherFlex.Model.Weather;
 
 namespace WeatherFlex.Model
 {
     public class WeatherForecast
     {
-        [JsonIgnore]
-        public WeatherData WeatherData { get; set; }
         [JsonIgnore]
         public LocationProperties LocationProperties { get; set; }
         [JsonIgnore]
@@ -32,13 +28,7 @@ namespace WeatherFlex.Model
 
         [JsonPropertyName("daily")]
         public ForecastDailyValues DailyValues { get; set; }
-
         public DailyForecast DailyForecast { get; set; }
-
-        public WeatherForecast()
-        {
-            this.Timezone = "GMT";
-        }
     }
     
     public class ForecastDailyUnits
