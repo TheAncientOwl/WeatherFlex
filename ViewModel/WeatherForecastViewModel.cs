@@ -1,4 +1,5 @@
 ﻿//using AuthenticationServices;
+using System;
 using WeatherFlex.Data;
 using WeatherFlex.Model;
 using WeatherFlex.Model.Weather;
@@ -8,12 +9,14 @@ namespace WeatherFlex.ViewModel
 {
     public class WeatherForecastViewModel
     {
-        public WeatherForecast WeatherForecast { get; set; }
+        public WeatherForecast WeatherForecast { get; private set; }
+
+
+        //public string Timezone { get => WeatherForecast?.Timezone; }
 
         public LocationProperties LocationProperties { get => WeatherForecast.LocationProperties; }
 
         
-
         //public WeatherCode weatherCode { get => WeatherForecast.WeatherCode}
 
         
@@ -54,7 +57,6 @@ namespace WeatherFlex.ViewModel
             }
 
             return forecasts;
-            
         }
     }
 }

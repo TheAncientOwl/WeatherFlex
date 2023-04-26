@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 using WeatherFlex.Data;
 using WeatherFlex.Model.Weather;
 
@@ -33,8 +34,13 @@ namespace WeatherFlex.Model
         public ForecastDailyValues DailyValues { get; set; }
 
         public DailyForecast DailyForecast { get; set; }
-    }
 
+        public WeatherForecast()
+        {
+            this.Timezone = "GMT";
+        }
+    }
+    
     public class ForecastDailyUnits
     {
         [JsonPropertyName("temperature_2m_max")]
