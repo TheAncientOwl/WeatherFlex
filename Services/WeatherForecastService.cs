@@ -13,7 +13,6 @@ namespace WeatherFlex.Services
             public static readonly string ForecastDays = "&forecast_days=14";
             public static readonly string TimeZone = "&timezone=auto";
         }
-        //https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max&forecast_days=14&timezone=auto
         private static readonly string API_LINK = "https://api.open-meteo.com/v1/forecast?" + QueryParameters.Location + QueryParameters.Daily + QueryParameters.ForecastDays + QueryParameters.TimeZone;
 
         private readonly HttpClient httpClient;
