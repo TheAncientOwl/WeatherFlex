@@ -70,7 +70,7 @@
                                         </Grid.ColumnDefinitions>
 
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="40"/>
+                                           
                                             <RowDefinition Height="40"/>
                                             <RowDefinition Height="40"/>
                                             <RowDefinition Height="40"/>
@@ -80,16 +80,12 @@
                                             <RowDefinition Height="40"/>
                                         </Grid.RowDefinitions>
 
-                                        <Label TextColor="{Binding WeatherCode.TextColor}" 
-                                           VerticalOptions="CenterAndExpand" 
-                                           HorizontalOptions="CenterAndExpand" 
-                                           Grid.Row="0" 
-                                           Text="The Date"/>
+                                        
 
                                         <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            VerticalOptions="CenterAndExpand" 
                                            HorizontalOptions="CenterAndExpand" 
-                                           Grid.Row="1" 
+                                           Grid.Row="0" 
                                            Text="{Binding Time}"/>
 
                                         <Label TextColor="{Binding WeatherCode.TextColor}" 
@@ -97,30 +93,34 @@
                                            HorizontalOptions="CenterAndExpand"
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"
-                                           Grid.Row="2" 
+                                           Grid.Row="1" 
                                            Text="{Binding WeatherCode.Interpretation}"/>
 
                                         <HorizontalStackLayout VerticalOptions="CenterAndExpand" 
                                                            HorizontalOptions="CenterAndExpand" 
-                                                           Grid.Row="3">
+                                                           Grid.Row="2">
                                             <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            Text="{Binding TemperatureMax2m}"/>
                                             <Label TextColor="{Binding WeatherCode.TextColor}" 
-                                               Text=" °C Max"/>
+                                               Text="{Binding Units}"/>
+                                            <Label TextColor="{Binding WeatherCode.TextColor}" 
+                                               Text=" Max"/>
                                         </HorizontalStackLayout>
                                         
                                         <HorizontalStackLayout VerticalOptions="CenterAndExpand" 
                                                            HorizontalOptions="CenterAndExpand" 
-                                                           Grid.Row="4">
+                                                           Grid.Row="3">
                                             <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            Text="{Binding TemperatureMin2m}"/>
                                             <Label TextColor="{Binding WeatherCode.TextColor}" 
-                                               Text=" °C Min"/>
+                                               Text="{Binding Units}"/>
+                                            <Label TextColor="{Binding WeatherCode.TextColor}" 
+                                               Text=" Min"/>
                                         </HorizontalStackLayout>
 
                                         <HorizontalStackLayout VerticalOptions="CenterAndExpand" 
                                                            HorizontalOptions="CenterAndExpand" 
-                                                           Grid.Row="5">
+                                                           Grid.Row="4">
                                             <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            Text="{Binding Sunrise}"/>
                                             <Label TextColor="{Binding WeatherCode.TextColor}" 
@@ -129,7 +129,7 @@
 
                                         <HorizontalStackLayout VerticalOptions="CenterAndExpand" 
                                                            HorizontalOptions="CenterAndExpand" 
-                                                           Grid.Row="6">
+                                                           Grid.Row="5">
                                             <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            Text="{Binding Sunset}"/>
                                             <Label TextColor="{Binding WeatherCode.TextColor}" 
@@ -138,7 +138,7 @@
 
                                         <HorizontalStackLayout VerticalOptions="CenterAndExpand" 
                                                            HorizontalOptions="CenterAndExpand" 
-                                                           Grid.Row="7">
+                                                           Grid.Row="6">
                                             <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            Text="{Binding PrecipitationProbability}"/>
                                             <Label TextColor="{Binding WeatherCode.TextColor}" 

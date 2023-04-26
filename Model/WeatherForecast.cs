@@ -87,6 +87,8 @@ namespace WeatherFlex.Model
         public string Sunrise { get; set; }
         public string Sunset { get; set; }
         public int? PrecipitationProbability { get; set; }
+        
+        public string Units { get; set; }  
     }
     
 }

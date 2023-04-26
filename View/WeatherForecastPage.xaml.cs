@@ -1,3 +1,5 @@
+using WeatherFlex.Database;
+using WeatherFlex.Model;
 using WeatherFlex.Services;
 using WeatherFlex.View.Feedback;
 using WeatherFlex.ViewModel;
@@ -16,7 +18,7 @@ public partial class WeatherForecastPage : ContentPage
     {
         var contentBackup = Content;
         Content = new InfoView("Loading data...");
-
+        
         var viewModel = new WeatherForecastViewModel();
 
         var userLocation = await new GeolocationService().GetLocationAsync();
@@ -25,7 +27,9 @@ public partial class WeatherForecastPage : ContentPage
 
         Content = contentBackup;
         BindingContext = viewModel;
-
-        hourlyWeatherForecast.ItemsSource = viewModel.GetForecastValues();
+        SettingsDao settingsDao = new();
+        Settings userSettings = await settingsDao.Get();
+        await settingsDao.CloseAsync();
+        hourlyWeatherForecast.ItemsSource = viewModel.GetForecastValues(userSettings);
     }
 }
