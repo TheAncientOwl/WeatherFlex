@@ -7,15 +7,12 @@ namespace WeatherFlex.Model
     {
         [JsonIgnore]
         public LocationProperties LocationProperties { get; set; }
+
         [JsonIgnore]
         public string WeatherInterpretation { get; set; }
+
         [JsonIgnore]
         public Color BackgroundColor { get; private set; }
-        [JsonPropertyName("latitude")]
-        public double Latitude { get; set; }
-
-        [JsonPropertyName("longitude")]
-        public double Longitude { get; set; }
 
         [JsonPropertyName("timezone")]
         public string Timezone { get; set; }
@@ -23,29 +20,12 @@ namespace WeatherFlex.Model
         [JsonPropertyName("elevation")]
         public double Elevation { get; set; }
 
-        [JsonPropertyName("daily_units")]
-        public ForecastDailyUnits DailyUnits { get; set; }
-
         [JsonPropertyName("daily")]
         public ForecastDailyValues DailyValues { get; set; }
-        public DailyForecast DailyForecast { get; set; }
-    }
-    
-    public class ForecastDailyUnits
-    {
-        [JsonPropertyName("temperature_2m_max")]
-        public string TemperatureMax2m { get; set; }
-
-        [JsonPropertyName("temperature_2m_min")]
-        public string TemperatureMin2m { get; set; }
-
-        [JsonPropertyName("precipitation_probability_max")]
-        public string PrecipitationProbability { get; set; }
     }
 
     public class ForecastDailyValues
     {
-        
         [JsonPropertyName("time")]
         public List<string> Time { get; set; }
 
@@ -77,8 +57,6 @@ namespace WeatherFlex.Model
         public string Sunrise { get; set; }
         public string Sunset { get; set; }
         public int? PrecipitationProbability { get; set; }
-        
         public string Units { get; set; }  
     }
-    
 }
