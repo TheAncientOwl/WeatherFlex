@@ -28,15 +28,6 @@
             </HorizontalStackLayout>-->
             
 
-            <!--<HorizontalStackLayout HorizontalOptions="CenterAndExpand"
-                               VerticalOptions="CenterAndExpand"
-                               Margin="0,6,0,0" 
-                               Padding="10,0,10,0">
-                <Label FontSize="Caption" Text="" Margin="0,0,5,0"/>
-                <Label FontSize="Body" Text="{Binding Timezone}" Margin="0,0,2,0"/>
-                <Label FontSize="Body" Text="%"/>
-            </HorizontalStackLayout>-->
-
             <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
                                Spacing="10"
@@ -65,15 +56,15 @@
                         Orientation="Horizontal" 
                         HorizontalOptions="FillAndExpand">
                     <CollectionView x:Name="hourlyWeatherForecast" 
-                                x:DataType="model:Weather.TemperatureDaily" 
+                                x:DataType="model:ForecastValues" 
                                 ItemsLayout="HorizontalList">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Border Stroke="{Binding weatherCode.BackgroundColor}" 
+                                <Border Stroke="{Binding WeatherCode.BackgroundColor}" 
                                     StrokeThickness="3" 
                                     StrokeShape="RoundRectangle 4,4,4,4"
                                     Margin="0,0,0,20">
-                                    <Grid BackgroundColor="{Binding weatherCode.BackgroundColor}">
+                                    <Grid BackgroundColor="{Binding WeatherCode.BackgroundColor}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="95"/>
                                         </Grid.ColumnDefinitions>
@@ -89,68 +80,68 @@
                                             <RowDefinition Height="40"/>
                                         </Grid.RowDefinitions>
 
-                                        <Label TextColor="{Binding weatherCode.TextColor}" 
+                                        <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            VerticalOptions="CenterAndExpand" 
                                            HorizontalOptions="CenterAndExpand" 
                                            Grid.Row="0" 
                                            Text="The Date"/>
 
-                                        <Label TextColor="{Binding weatherCode.TextColor}" 
+                                        <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            VerticalOptions="CenterAndExpand" 
                                            HorizontalOptions="CenterAndExpand" 
                                            Grid.Row="1" 
                                            Text="{Binding Time}"/>
 
-                                        <Label TextColor="{Binding weatherCode.TextColor}" 
+                                        <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            VerticalOptions="CenterAndExpand" 
                                            HorizontalOptions="CenterAndExpand"
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"
                                            Grid.Row="2" 
-                                           Text="{Binding weatherCode.Interpretation}"/>
+                                           Text="{Binding WeatherCode.Interpretation}"/>
 
                                         <HorizontalStackLayout VerticalOptions="CenterAndExpand" 
                                                            HorizontalOptions="CenterAndExpand" 
                                                            Grid.Row="3">
-                                            <Label TextColor="{Binding weatherCode.TextColor}" 
+                                            <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            Text="{Binding TemperatureMax2m}"/>
-                                            <Label TextColor="{Binding weatherCode.TextColor}" 
+                                            <Label TextColor="{Binding WeatherCode.TextColor}" 
                                                Text=" °C Max"/>
                                         </HorizontalStackLayout>
                                         
                                         <HorizontalStackLayout VerticalOptions="CenterAndExpand" 
                                                            HorizontalOptions="CenterAndExpand" 
                                                            Grid.Row="4">
-                                            <Label TextColor="{Binding weatherCode.TextColor}" 
+                                            <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            Text="{Binding TemperatureMin2m}"/>
-                                            <Label TextColor="{Binding weatherCode.TextColor}" 
+                                            <Label TextColor="{Binding WeatherCode.TextColor}" 
                                                Text=" °C Min"/>
                                         </HorizontalStackLayout>
 
                                         <HorizontalStackLayout VerticalOptions="CenterAndExpand" 
                                                            HorizontalOptions="CenterAndExpand" 
                                                            Grid.Row="5">
-                                            <Label TextColor="{Binding weatherCode.TextColor}" 
+                                            <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            Text="{Binding Sunrise}"/>
-                                            <Label TextColor="{Binding weatherCode.TextColor}" 
+                                            <Label TextColor="{Binding WeatherCode.TextColor}" 
                                                Text=" Sunrise"/>
                                         </HorizontalStackLayout>
 
                                         <HorizontalStackLayout VerticalOptions="CenterAndExpand" 
                                                            HorizontalOptions="CenterAndExpand" 
                                                            Grid.Row="6">
-                                            <Label TextColor="{Binding weatherCode.TextColor}" 
+                                            <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            Text="{Binding Sunset}"/>
-                                            <Label TextColor="{Binding weatherCode.TextColor}" 
+                                            <Label TextColor="{Binding WeatherCode.TextColor}" 
                                                Text=" Sunset"/>
                                         </HorizontalStackLayout>
 
                                         <HorizontalStackLayout VerticalOptions="CenterAndExpand" 
                                                            HorizontalOptions="CenterAndExpand" 
                                                            Grid.Row="7">
-                                            <Label TextColor="{Binding weatherCode.TextColor}" 
+                                            <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            Text="{Binding PrecipitationProbability}"/>
-                                            <Label TextColor="{Binding weatherCode.TextColor}" 
+                                            <Label TextColor="{Binding WeatherCode.TextColor}" 
                                                Text="% Rain"/>
                                         </HorizontalStackLayout>
                                     </Grid>

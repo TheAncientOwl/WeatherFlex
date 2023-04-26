@@ -81,7 +81,7 @@ namespace WeatherFlex.Model
     public class ForecastValues
     {
         public string Time { get; set; }
-        public WeatherCode Weathercode { get; set; }
+        public WeatherCode WeatherCode { get; set; }
         public double TemperatureMax2m { get; set; }
         public double TemperatureMin2m { get; set; }
         public string Sunrise { get; set; }

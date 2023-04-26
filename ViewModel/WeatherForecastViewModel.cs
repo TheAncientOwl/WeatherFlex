@@ -13,12 +13,13 @@ namespace WeatherFlex.ViewModel
 
 
         //public string Timezone { get => WeatherForecast?.Timezone; }
+        
 
         public LocationProperties LocationProperties { get => WeatherForecast.LocationProperties; }
 
         
         //public WeatherCode weatherCode { get => WeatherForecast.WeatherCode}
-
+        public List<int> weatherCode { get => WeatherForecast.DailyForecast.Weathercode; }
         
         public async Task FetchWeatherForecast(double latitude, double longitude)
         {
@@ -46,7 +47,7 @@ namespace WeatherFlex.ViewModel
                 forecasts.Add(new ForecastValues()
                 {
                     Time = dailyValues.Time[i],
-                    Weathercode = WeatherCode.FromCode(dailyValues.Weathercode[i]),
+                    WeatherCode = WeatherCode.FromCode(dailyValues.Weathercode[i]),
                     TemperatureMax2m = dailyValues.TemperatureMax2m[i],
                     TemperatureMin2m = dailyValues.TemperatureMin2m[i],
                     Sunrise = dailyValues.Sunrise[i].Substring(dailyValues.Sunrise[i].Length-5),
