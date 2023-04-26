@@ -6,14 +6,15 @@
              x:DataType="model:Weather.WeatherAPI">
     <ScrollView>
         <VerticalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,20,0,20">
-            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="10,0,10,0">
-                <Label FontSize="18" Text="{Binding LocationProperties.City}"/>
-                <Label FontSize="18" Text="," Margin="0,0,5,0"/>
-                <Label FontSize="18" Text="{Binding LocationProperties.Country}"/>
-            </HorizontalStackLayout>
+            <ScrollView Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="10,0,10,10">
+                    <Label FontSize="18" Text="{Binding LocationProperties.City}"/>
+                    <Label FontSize="18" Text="," Margin="0,0,5,0"/>
+                    <Label FontSize="18" Text="{Binding LocationProperties.Country}"/>
+                </HorizontalStackLayout>
+            </ScrollView>
 
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
-                                   Margin="0,5,0,0"
                                    Padding="10,0,10,0">
                 <Label FontSize="65" FontAttributes="Bold" Text="{Binding CurrentWeather.Temperature}"/>
                 <Label FontSize="35" FontAttributes="Bold" Padding="0,5,0,0" Text="{Binding WeatherUnits.Units}"/>

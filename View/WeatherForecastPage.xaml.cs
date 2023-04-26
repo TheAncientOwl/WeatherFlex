@@ -31,5 +31,12 @@ public partial class WeatherForecastPage : ContentPage
         await settingsDao.CloseAsync();
 
         hourlyWeatherForecast.ItemsSource = viewModel.GetForecastValues(userSettings);
+        hourlyWeatherScrollView.MaximumWidthRequest = ForecastViewWidth;
+        Window.SizeChanged += WindowSizeChanged;
     }
+
+    void WindowSizeChanged(object sender, EventArgs e) =>
+        hourlyWeatherScrollView.MaximumWidthRequest = ForecastViewWidth;
+
+    double ForecastViewWidth { get => Window.Width - Window.Width * 0.05; }
 }
