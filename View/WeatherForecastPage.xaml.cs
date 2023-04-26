@@ -21,14 +21,15 @@ public partial class WeatherForecastPage : ContentPage
         var viewModel = new WeatherForecastViewModel();
 
         var userLocation = await new GeolocationService().GetLocationAsync();
-
         await viewModel.FetchWeatherForecast(userLocation.Latitude, userLocation.Longitude);
 
         Content = contentBackup;
         BindingContext = viewModel;
+
         SettingsDao settingsDao = new();
         Settings userSettings = await settingsDao.Get();
         await settingsDao.CloseAsync();
+
         hourlyWeatherForecast.ItemsSource = viewModel.GetForecastValues(userSettings);
     }
 }

@@ -5,14 +5,12 @@
              x:Class="WeatherFlex.View.Feedback.InfoView"
              x:DataType="local:InfoView"
              >
-    <VerticalStackLayout 
-        HorizontalOptions="CenterAndExpand" 
-        VerticalOptions="CenterAndExpand"
-        Padding="10,10,10,10">
-        <Label
-            Text="{Binding InfoText}"
-            FontSize="Title"
-            HorizontalTextAlignment="Center" 
-            VerticalTextAlignment="Center" />
+    <VerticalStackLayout HorizontalOptions="CenterAndExpand" 
+                         VerticalOptions="CenterAndExpand"
+                         Padding="10,10,10,10">
+        <Label Text="{Binding InfoText}"
+               FontSize="Title"
+               HorizontalTextAlignment="Center" 
+               VerticalTextAlignment="Center" />
     </VerticalStackLayout>
 </ContentView>
