@@ -74,19 +74,6 @@ namespace WeatherFlex.Database
             return result;
         }
 
-        public async Task<int> Update(FavLocation favLocation)
-        {
-            await InitDatabase();
-
-            await Delete(favLocation);
-
-            int result = await Insert(favLocation);
-
-            await HandleLocationsUpdate();
-
-            return result;
-        }
-
         public async Task CloseAsync()
         {
             await connection.CloseAsync();
