@@ -12,10 +12,7 @@ namespace WeatherFlex.ViewModel
         public LocationProperties LocationProperties { get => WeatherForecast.LocationProperties; }
         
         public async Task FetchWeatherForecast(double latitude, double longitude)
-        {
-            WeatherForecast = await new WeatherForecastService().FetchWeather(latitude, longitude);
-            WeatherForecast.LocationProperties = await new GeolocationService().GetLocationPropertiesAsync(latitude, longitude);
-        }
+            => WeatherForecast = await WeatherForecastData.Get(latitude, longitude);
 
         public List<ForecastValues> GetForecastValues(Settings userSettings)
         {

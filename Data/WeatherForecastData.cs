@@ -23,28 +23,28 @@ namespace WeatherFlex.Data
 
             Tuple<double, double> location = new(latitude, longitude);
 
-            WeatherForecast weatheForecast;
+            WeatherForecast weatherForecast;
             if (instance.data.TryGetValue(location, out Tuple<WeatherForecast, DateTime> dataValue))
             {
                 TimeSpan timeSinceLastFetch = DateTime.Now - dataValue.Item2;
 
                 if (timeSinceLastFetch.TotalMinutes < 5)
                 {
-                    weatheForecast = dataValue.Item1;
+                    weatherForecast = dataValue.Item1;
                 }
                 else
                 {
-                    weatheForecast = await FetchWeather(latitude, longitude);
-                    instance.data[location] = new(weatheForecast, DateTime.Now);
+                    weatherForecast = await FetchWeather(latitude, longitude);
+                    instance.data[location] = new(weatherForecast, DateTime.Now);
                 }
             }
             else
             {
-                weatheForecast = await FetchWeather(latitude, longitude);
-                instance.data.Add(location, new(weatheForecast, DateTime.Now));
+                weatherForecast = await FetchWeather(latitude, longitude);
+                instance.data.Add(location, new(weatherForecast, DateTime.Now));
             }
 
-            return weatheForecast;
+            return weatherForecast;
         }
 
         private WeatherForecastData() { }
