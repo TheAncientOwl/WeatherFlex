@@ -46,14 +46,15 @@ namespace WeatherFlex.ViewModel
                     Weathercode = WeatherCode.FromCode(dailyValues.Weathercode[i]),
                     TemperatureMax2m = dailyValues.TemperatureMax2m[i],
                     TemperatureMin2m = dailyValues.TemperatureMin2m[i],
-                    Sunrise = dailyValues.Sunrise[i],
-                    Sunset = dailyValues.Sunset[i],
+                    Sunrise = dailyValues.Sunrise[i].Substring(dailyValues.Sunrise[i].Length-5),
+                    Sunset = dailyValues.Sunset[i].Substring(dailyValues.Sunset[i].Length-5),
                     PrecipitationProbability = dailyValues.PrecipitationProbability[i] != null ? dailyValues.PrecipitationProbability[i] : 0
 
             });
             }
 
             return forecasts;
+            
         }
     }
 }
