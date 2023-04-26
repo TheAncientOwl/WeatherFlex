@@ -1,7 +1,6 @@
 ﻿using WeatherFlex.DataCache;
 using WeatherFlex.Model;
 using WeatherFlex.Model.Weather;
-using WeatherFlex.Services;
 using WeatherFlex.ViewModels;
 
 namespace WeatherFlex.ViewModel

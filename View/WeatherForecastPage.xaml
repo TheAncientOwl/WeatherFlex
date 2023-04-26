@@ -4,9 +4,7 @@
              xmlns:viewModel="clr-namespace:WeatherFlex.ViewModel"
              xmlns:model="clr-namespace:WeatherFlex.Model"
              x:Class="WeatherFlex.View.WeatherForecastPage"
-             x:DataType="model:WeatherForecast"
-             Title="WeatherForecastPage">
-
+             x:DataType="model:WeatherForecast">
     <ScrollView>
         <VerticalStackLayout HorizontalOptions="CenterAndExpand" Padding="0,20,0,20">
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="10,0,10,0">
@@ -26,13 +24,13 @@
                                        Padding="10,0,10,20">
                     <HorizontalStackLayout>
                         <Label FontSize="Body" Text="lat:" Margin="0,0,3,0"/>
-                        <Label FontSize="Body" Text="{Binding LocationProperties.Latitude}"/>
+                        <Label FontSize="Body" Text="{Binding LocationProperties.Latitude, StringFormat='{0:F4}'}"/>
                         <Label FontSize="Body" Text="°,"/>
                     </HorizontalStackLayout>
 
                     <HorizontalStackLayout>
                         <Label FontSize="Body" Text="long: " Margin="0,0,3,0"/>
-                        <Label FontSize="Body" Text="{Binding LocationProperties.Longitude}"/>
+                        <Label FontSize="Body" Text="{Binding LocationProperties.Longitude, StringFormat='{0:F4}'}"/>
                         <Label FontSize="Body" Text="°"/>
                     </HorizontalStackLayout>
                 </HorizontalStackLayout>
