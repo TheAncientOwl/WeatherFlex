@@ -1,13 +1,13 @@
 ﻿using WeatherFlex.Model;
 using WeatherFlex.Services;
 
-namespace WeatherFlex.Data
+namespace WeatherFlex.DataCache
 {
-    public class WeatherForecastData
+    public class WeatherForecastDataCache
     {
         readonly Dictionary<Tuple<double, double>, Tuple<WeatherForecast, DateTime>> data = new();
 
-        static WeatherForecastData instance;
+        static WeatherForecastDataCache instance;
 
         static async Task<WeatherForecast> FetchWeather(double latitude, double longitude)
         {
@@ -19,7 +19,7 @@ namespace WeatherFlex.Data
 
         public static async Task<WeatherForecast> Get(double latitude, double longitude)
         {
-            instance ??= new WeatherForecastData();
+            instance ??= new WeatherForecastDataCache();
 
             Tuple<double, double> location = new(latitude, longitude);
 
@@ -47,6 +47,6 @@ namespace WeatherFlex.Data
             return weatherForecast;
         }
 
-        private WeatherForecastData() { }
+        private WeatherForecastDataCache() { }
     }
 }

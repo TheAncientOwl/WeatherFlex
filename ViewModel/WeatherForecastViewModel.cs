@@ -1,4 +1,4 @@
-﻿using WeatherFlex.Data;
+﻿using WeatherFlex.DataCache;
 using WeatherFlex.Model;
 using WeatherFlex.Model.Weather;
 using WeatherFlex.Services;
@@ -12,7 +12,7 @@ namespace WeatherFlex.ViewModel
         public LocationProperties LocationProperties { get => WeatherForecast.LocationProperties; }
         
         public async Task FetchWeatherForecast(double latitude, double longitude)
-            => WeatherForecast = await WeatherForecastData.Get(latitude, longitude);
+            => WeatherForecast = await WeatherForecastDataCache.Get(latitude, longitude);
 
         public List<ForecastValues> GetForecastValues(Settings userSettings)
         {
