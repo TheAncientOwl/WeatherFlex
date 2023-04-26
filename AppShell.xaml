@@ -12,7 +12,7 @@
         ContentTemplate="{DataTemplate local:HomePage}"
         Route="HomePage" />
     <ShellContent
-        Title="Search"
+        Title="Search Weather"
         ContentTemplate="{DataTemplate view:SearchPage}"
         Route="SearchPage" />
     <ShellContent
@@ -20,6 +20,10 @@
         ContentTemplate="{DataTemplate view:WeatherForecastPage}"
         Route="ForecastPage"
         />
+    <ShellContent
+        Title="Favorite Locations"
+        ContentTemplate="{DataTemplate view:FavoritesCarousel}"
+        Route="FavoritesCarousel" />
     <ShellContent
         Title="Settings"
         ContentTemplate="{DataTemplate view:SettingsPage}"

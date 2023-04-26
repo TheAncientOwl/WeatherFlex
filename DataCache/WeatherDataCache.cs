@@ -1,25 +1,30 @@
-﻿using WeatherFlex.Model.Weather;
+﻿using WeatherFlex.Database;
+using WeatherFlex.Model;
+using WeatherFlex.Model.Weather;
 using WeatherFlex.Services;
 
-namespace WeatherFlex.Data
+namespace WeatherFlex.DataCache
 {
-    public class WeatherData
+    public class WeatherDataCache
     {
         readonly Dictionary<Tuple<double, double>, Tuple<WeatherAPI, DateTime>> data = new();
 
-        static WeatherData instance;
+        static WeatherDataCache instance;
 
         static async Task<WeatherAPI> FetchWeather(double latitude, double longitude)
         {
             WeatherAPI weatherApi = await new WeatherService().FetchWeather(latitude, longitude);
-            weatherApi.LocationProperties = await new GeolocationService().GetLocationPropertiesAsync(latitude, longitude);
+            if (weatherApi != null)
+            {
+                weatherApi.LocationProperties = await new GeolocationService().GetLocationPropertiesAsync(latitude, longitude);
+            }
 
             return weatherApi;
         }
 
         public static async Task<WeatherAPI> Get(double latitude, double longitude)
         {
-            instance ??= new WeatherData();
+            instance ??= new WeatherDataCache();
 
             Tuple<double, double> location = new(latitude, longitude);
 
@@ -28,7 +33,11 @@ namespace WeatherFlex.Data
             {
                 TimeSpan timeSinceLastFetch = DateTime.Now - dataValue.Item2;
 
-                if (timeSinceLastFetch.TotalMinutes < 5)
+                SettingsDao settingsDao = new();
+                Settings settings = await settingsDao.Get();
+                await settingsDao.CloseAsync();
+
+                if (timeSinceLastFetch.TotalMinutes < settings.WeatherDelay)
                 {
                     weatherApi = dataValue.Item1;
                 }
@@ -47,6 +56,6 @@ namespace WeatherFlex.Data
             return weatherApi;
         }
 
-        private WeatherData() { }
+        private WeatherDataCache() { }
     }
 }

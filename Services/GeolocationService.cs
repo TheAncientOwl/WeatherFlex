@@ -66,26 +66,45 @@ namespace WeatherFlex.Services
                 ((float)latitude).ToString(cultureInfo),
                 ((float)longitude).ToString(cultureInfo));
 
-            LocationFeatures locationFeatures = await httpClient.GetFromJsonAsync<LocationFeatures>(link);
+            try
+            {
+                LocationFeatures locationFeatures = await httpClient.GetFromJsonAsync<LocationFeatures>(link);
 
-            return locationFeatures.Features[0].LocationProperties;
+                return locationFeatures.Features[0].LocationProperties;
+            }
+            catch
+            {
+                await Shell.Current.DisplayAlert("Internet error", "Checkk your internet connection", "OK");
+                return null;
+            }
         }
 
         public async Task<LocationData> GetLocationDataAsync(string city, string countryCode)
         {
+            if (city == null || countryCode == null || city.Length == 0 || countryCode.Length == 0)
+                return null;
+
             var link = string.Format(
                 GEOLOCATION_API_LINK,
-                city,
-                countryCode);
+                city.ToLower(),
+                countryCode.ToLower());
             try
             {
                 LocationDataWrapper locationWrapper = await httpClient.GetFromJsonAsync<LocationDataWrapper>(link);
 
-                return locationWrapper.Features.Count != 0 ? locationWrapper.Features[0].LocationData : null;
+                if (locationWrapper.Features.Count == 0)
+                {
+                    await Shell.Current.DisplayAlert("Unknown Location", "Provided location is not valid", "OK");
+                    return null;
+                }
+
+                return locationWrapper.Features[0].LocationData;
             }
             catch
             {
-                return null;
+                await Shell.Current.DisplayAlert("Unknown Location", "Provided location is not valid", "OK");
+
+                return new LocationData() { Latitude = 100000, Longitude = 100000 };
             }
         }
     }

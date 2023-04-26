@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:WeatherFlex.Model"
+             xmlns:viewModel="clr-namespace:WeatherFlex.ViewModel"
+             x:Class="WeatherFlex.View.FavoritesCarousel"
+             x:DataType="viewModel:CarouselViewModel">
+    <CarouselView ItemsSource="{Binding FavLocations}" EmptyView="Loading...">
+        <CarouselView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout x:DataType="model:CarouselContent">
+                    <ContentView Content="{Binding LocationContent}"/>
+                </StackLayout>
+            </DataTemplate>
+        </CarouselView.ItemTemplate>
+    </CarouselView>
+</ContentPage>

@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WeatherFlex.View.AboutPage"
-             Title="About us" >
-
+             x:Class="WeatherFlex.View.AboutPage">
     <ScrollView>
         <VerticalStackLayout
-            Spacing="50"
-            Padding="50,50,50,50"
+            Spacing="30"
+            Padding="50,40,50,100"
             VerticalOptions="Center"
             HorizontalOptions="Center"
             >
-
-            <Border WidthRequest="300"
-                    HeightRequest="300"
+            <Border WidthRequest="250"
+                    HeightRequest="250"
                     Stroke="Orange"
-                    StrokeThickness="7"
+                    StrokeThickness="5"
                     BackgroundColor="Black"
                     StrokeShape="RoundRectangle 20">
                 <Image
                     Source="poza_weather_flex.png"
-                    HeightRequest="300"
-                    WidthRequest="300"/>
+                    HeightRequest="250"
+                    WidthRequest="250"/>
             </Border>
 
             <Border
-                MaximumWidthRequest="1100"
+                MaximumWidthRequest="950"
                 Stroke="Orange"
                 StrokeThickness="2"
                 StrokeShape="RoundRectangle 20"
                 Padding="25,25,25,25"
                 >
                 <Label 
-                    FontSize="15" 
+                    FontSize="Body" 
                     FontAttributes="Bold" 
                     VerticalTextAlignment="Center" 
                     HorizontalTextAlignment="Center"
@@ -47,27 +44,45 @@ Whether you're a casual weather watcher or a serious meteorology enthusiast, Wea
                 />
             </Border>
 
-            <VerticalStackLayout>
-                <Label Text="Authors:" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold" TextDecorations="Underline"/>
-                <Label Text="Delegeanu Alexandru-Gabriel" FontSize="20" HorizontalOptions="Center" />
-                <Label Text="Francu Catalin-Marian" FontSize="20" HorizontalOptions="Center" />
-                <Label Text="Goia Ciprian-Gabriel" FontSize="20" HorizontalOptions="Center" />
-                <Label Text="Linca Alin" FontSize="20" HorizontalOptions="Center" />
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Authors" FontSize="Title" HorizontalOptions="Center" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <Label Text="Delegeanu Alexandru-Gabriel" FontSize="Small" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                <Label Text="Francu Catalin-Marian" FontSize="Small" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                <Label Text="Goia Ciprian-Gabriel" FontSize="Small" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                <Label Text="Linca Alin" FontSize="Small" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
             </VerticalStackLayout>
 
-            <VerticalStackLayout HorizontalOptions="Center" >
-                <Label Text="Weather API:" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold" TextDecorations="Underline" />
-                <Label Text=" https://open-meteo.com/en/docs" FontSize="20" HorizontalOptions="Center" TextColor="Cyan" TextDecorations="Underline" >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding TapCommand}"
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Label Text="Used APIs" FontSize="Title" HorizontalOptions="Center" FontAttributes="Bold"/>
+
+                <ScrollView Orientation="Horizontal">
+                    <VerticalStackLayout>
+                        <HorizontalStackLayout Spacing="5">
+                            <Label Text="Weather -" FontSize="Small"/>
+                            <Label Text="https://open-meteo.com/en/docs" FontSize="Small" HorizontalOptions="Center" TextColor="Orange" TextDecorations="Underline" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}"
                                            CommandParameter="https://open-meteo.com/en/docs"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="5">
+                            <Label Text="Geolocation -" FontSize="Small"/>
+                            <Label Text="https://www.geoapify.com" FontSize="Small" HorizontalOptions="Center" TextColor="Orange" TextDecorations="Underline" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}"
+                                           CommandParameter="https://www.geoapify.com"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </ScrollView>
             </VerticalStackLayout>
 
             <HorizontalStackLayout HorizontalOptions="Center">
-                <Label Text="Version:" FontSize="20" FontAttributes="Bold" TextDecorations="Underline" />
-                <Label Text=" 1.0.0" FontSize="20" />
+                <Label Text="Version" FontSize="Title" FontAttributes="Bold"/>
+                <Label Text=" 1.0.0" FontSize="Subtitle" TextColor="Orange" VerticalOptions="CenterAndExpand"/>
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

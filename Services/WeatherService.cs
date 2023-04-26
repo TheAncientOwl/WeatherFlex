@@ -22,11 +22,19 @@ namespace WeatherFlex.Services
             CultureInfo cultureInfo = CultureInfo.GetCultureInfo("en-US");
 
             var link = string.Format(
-                API_LINK, 
-                ((float)latitude).ToString(cultureInfo), 
+                API_LINK,
+                ((float)latitude).ToString(cultureInfo),
                 ((float)longitude).ToString(cultureInfo));
 
-            return await httpClient.GetFromJsonAsync<WeatherAPI>(link);
+            try
+            {
+                return await httpClient.GetFromJsonAsync<WeatherAPI>(link);
+            }
+            catch
+            {
+                await Shell.Current.DisplayAlert("Internet error", "Check your internet connection", "OK");
+                return null;
+            }
         }
     }
 }
