@@ -16,6 +16,11 @@
         ContentTemplate="{DataTemplate view:SearchPage}"
         Route="SearchPage" />
     <ShellContent
+        Title="Forecast"
+        ContentTemplate="{DataTemplate view:WeatherForecastPage}"
+        Route="ForecastPage"
+        />
+    <ShellContent
         Title="Favorite Locations"
         ContentTemplate="{DataTemplate view:FavoritesCarousel}"
         Route="FavoritesCarousel" />
@@ -27,5 +32,4 @@
         Title="About us"
         ContentTemplate="{DataTemplate view:AboutPage}"
         Route="AboutPage" />
-    
 </Shell>
