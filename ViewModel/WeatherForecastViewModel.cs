@@ -1,4 +1,4 @@
-﻿using AuthenticationServices;
+﻿//using AuthenticationServices;
 using WeatherFlex.Data;
 using WeatherFlex.Model;
 using WeatherFlex.Model.Weather;
@@ -11,6 +11,8 @@ namespace WeatherFlex.ViewModel
         public WeatherForecast WeatherForecast { get; set; }
 
         public LocationProperties LocationProperties { get => WeatherForecast.LocationProperties; }
+
+        
 
         //public WeatherCode weatherCode { get => WeatherForecast.WeatherCode}
 
@@ -46,8 +48,9 @@ namespace WeatherFlex.ViewModel
                     TemperatureMin2m = dailyValues.TemperatureMin2m[i],
                     Sunrise = dailyValues.Sunrise[i],
                     Sunset = dailyValues.Sunset[i],
-                    PrecipitationProbability = dailyValues.PrecipitationProbability[i]
-                });
+                    PrecipitationProbability = dailyValues.PrecipitationProbability[i] != null ? dailyValues.PrecipitationProbability[i] : 0
+
+            });
             }
 
             return forecasts;

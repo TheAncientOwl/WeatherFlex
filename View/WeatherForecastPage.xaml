@@ -16,11 +16,12 @@
                 <Label FontSize="18" Text="{Binding LocationProperties.Country}"/>
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
+           <!--<HorizontalStackLayout HorizontalOptions="CenterAndExpand"
                                Margin="0,6,0,0"
                                Padding="10,0,10,0">
                 <Label FontSize="Body" Text="{Binding WeatherInterpretation}"/>
-            </HorizontalStackLayout>
+            </HorizontalStackLayout>-->
+            
 
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand"
                                VerticalOptions="CenterAndExpand"
@@ -57,7 +58,7 @@
                         Orientation="Horizontal" 
                         HorizontalOptions="FillAndExpand">
                     <CollectionView x:Name="hourlyWeatherForecast" 
-                                x:DataType="model:Weather.Temperature" 
+                                x:DataType="model:Weather.TemperatureDaily" 
                                 ItemsLayout="HorizontalList">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
@@ -81,7 +82,7 @@
                                            VerticalOptions="CenterAndExpand" 
                                            HorizontalOptions="CenterAndExpand" 
                                            Grid.Row="0" 
-                                           Text="{Binding Hour}"/>
+                                           Text="{Binding Daily}"/>
 
                                         <Label TextColor="{Binding WeatherCode.TextColor}" 
                                            VerticalOptions="CenterAndExpand" 
