@@ -16,9 +16,9 @@
         ContentTemplate="{DataTemplate view:SearchPage}"
         Route="SearchPage" />
     <ShellContent
-        Title="Forecast"
+        Title="Weather Forecast"
         ContentTemplate="{DataTemplate view:WeatherForecastPage}"
-        Route="ForecastPage"
+        Route="Weather Forecast"
         />
     <ShellContent
         Title="Favorite Locations"

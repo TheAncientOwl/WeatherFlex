@@ -2,11 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherFlex.View.SearchPage">
-    <StackLayout
-            Spacing="30"
-            Padding="50,50,50,50"
-            VerticalOptions="Start"
-            HorizontalOptions="Center">
+    <StackLayout Spacing="30"
+                 Padding="50,50,50,50"
+                 VerticalOptions="Start"
+                 HorizontalOptions="Center">
         <VerticalStackLayout WidthRequest="350" Spacing="15">
             <Label Text="Enter City:" FontAttributes="Bold"/>
             <Entry Placeholder="Bucharest" x:Name="entryCity"/>

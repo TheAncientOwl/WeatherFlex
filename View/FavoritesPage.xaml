@@ -32,12 +32,10 @@
                                                    Padding="5,5,5,15"
                                                    HorizontalOptions="CenterAndExpand" 
                                                    VerticalOptions="CenterAndExpand">
-                                <Image
-                                    Source="{Binding FlagUrl}"
-                                    HeightRequest="30"
-                                    WidthRequest="30"
-                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
-                                    />
+                                <Image Source="{Binding FlagUrl}"
+                                       HeightRequest="30"
+                                       WidthRequest="30"
+                                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
 
                                 <HorizontalStackLayout                                                       
                                                        HorizontalOptions="CenterAndExpand" 
@@ -74,4 +72,3 @@
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
-    
